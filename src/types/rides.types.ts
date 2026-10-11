@@ -1,27 +1,14 @@
-export interface RideHighlight {
-  id: string;
-  title: string;
-  subtitle: string;
-  category:
-    | "Weekend Run"
-    | "Chai & Breakfast"
-    | "Highway Expedition"
-    | "Night Stroll"
-    | "Forest Trail"
-    | "Coastal Run"
-    | "Himalayan Pass";
-  distanceKm: number;
-  durationLabel: string;
-  origin: string;
-  destination: string;
-  terrain: string;
-  summary: string;
-  tags: string[];
-  image: {
-    src: string;
-    alt: string;
-  };
-}
+/**
+ * Global Ride and Community Types
+ * 
+ * Re-exports canonical Ride types from the rides feature module
+ * and defines related community pillars.
+ */
+
+export * from "@/features/rides/types";
+
+// Re-export Ride as RideHighlight for backwards compatibility
+export type { Ride as RideHighlight } from "@/features/rides/types";
 
 export interface CommunityPillar {
   id: string;

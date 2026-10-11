@@ -53,12 +53,12 @@ export const RidesFeatured: React.FC<RidesFeaturedProps> = ({ ride }) => {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-mono font-medium">
             <div className="flex items-center gap-2 text-zinc-300">
               <span className="w-2 h-2 rounded-full bg-amber-500" />
-              <span>Zero Mile Stone (Nagpur)</span>
+              <span>{ride.origin}</span>
             </div>
             <div className="hidden sm:block flex-1 mx-4 border-t border-dashed border-zinc-700" />
             <div className="flex items-center gap-2 text-zinc-400">
               <span className="w-2 h-2 rounded-full bg-zinc-600" />
-              <span>NH47 Betul Interstate Corridor</span>
+              <span>{ride.midwayWaypoint || ride.routeCharacter}</span>
             </div>
             <div className="hidden sm:block flex-1 mx-4 border-t border-dashed border-zinc-700" />
             <div className="flex items-center gap-2 text-amber-400 font-bold">

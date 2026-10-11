@@ -9,31 +9,35 @@ import { RidesFilterBar } from "./components/RidesFilterBar";
 import { RidesList } from "./components/RidesList";
 import { RidesArchive } from "./components/RidesArchive";
 import { RidesEmptyState } from "./components/RidesEmptyState";
-import { RIDES_DATA } from "./data/rides.data";
+import {
+  getRidesForRidesPage,
+  getFeaturedRide,
+} from "./data/rides.data";
 import { RideFilterState } from "./types";
 
+const DEFAULT_FILTERS: RideFilterState = {
+  status: "upcoming",
+  type: "all",
+  searchQuery: "",
+};
+
 export const RidesPage: React.FC = () => {
-  const [filters, setFilters] = useState<RideFilterState>({
-    status: "all",
-    type: "all",
-    searchQuery: "",
-  });
+  const [filters, setFilters] = useState<RideFilterState>(DEFAULT_FILTERS);
 
   const handleFilterChange = (updates: Partial<RideFilterState>) => {
     setFilters((prev) => ({ ...prev, ...updates }));
   };
 
   const handleReset = () => {
-    setFilters({
-      status: "all",
-      type: "all",
-      searchQuery: "",
-    });
+    setFilters(DEFAULT_FILTERS);
   };
+
+  // Base list of rides designated for the public /rides/ page
+  const pageRides = useMemo(() => getRidesForRidesPage(), []);
 
   // Filter rides based on user selection
   const filteredRides = useMemo(() => {
-    return RIDES_DATA.filter((ride) => {
+    return pageRides.filter((ride) => {
       // Status filter
       if (filters.status !== "all" && ride.status !== filters.status) {
         return false;
@@ -55,16 +59,16 @@ export const RidesPage: React.FC = () => {
       }
       return true;
     });
-  }, [filters]);
+  }, [pageRides, filters]);
 
   // Featured upcoming ride
   const featuredRide = useMemo(() => {
-    return RIDES_DATA.find((r) => r.featured && r.status === "upcoming") || null;
+    return getFeaturedRide();
   }, []);
 
   // Partition into upcoming and completed
   const upcomingRides = useMemo(() => {
-    return filteredRides.filter((r) => r.status === "upcoming" && !r.featured);
+    return filteredRides.filter((r) => r.status === "upcoming" && !r.display.featured);
   }, [filteredRides]);
 
   const completedRides = useMemo(() => {

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { RideFilterState, RideStatus, RideType } from "../types";
+import { RideFilterState, RideFilterStatus, RideFilterType } from "../types";
 import { RIDE_CATEGORIES, RIDE_STATUS_OPTIONS } from "../data/rides.data";
 import { Search, X, Route, Gauge, Compass } from "lucide-react";
 
@@ -19,7 +19,7 @@ export const RidesFilterBar: React.FC<RidesFilterBarProps> = ({
   totalCount,
 }) => {
   const isFiltered =
-    filters.status !== "all" ||
+    filters.status !== "upcoming" ||
     filters.type !== "all" ||
     filters.searchQuery.trim().length > 0;
 
@@ -36,7 +36,7 @@ export const RidesFilterBar: React.FC<RidesFilterBarProps> = ({
                   key={opt.value}
                   type="button"
                   onClick={() =>
-                    onFilterChange({ status: opt.value as RideStatus })
+                    onFilterChange({ status: opt.value as RideFilterStatus })
                   }
                   className={`px-3.5 py-1.5 rounded-lg text-xs font-mono uppercase tracking-wider transition-all flex items-center gap-1.5 ${
                     active
@@ -110,7 +110,7 @@ export const RidesFilterBar: React.FC<RidesFilterBarProps> = ({
               <button
                 key={cat.value}
                 type="button"
-                onClick={() => onFilterChange({ type: cat.value as RideType })}
+                onClick={() => onFilterChange({ type: cat.value as RideFilterType })}
                 className={`px-3 py-1 rounded-full text-xs font-mono uppercase tracking-wider shrink-0 transition-all ${
                   active
                     ? "bg-amber-500/20 text-amber-400 border border-amber-500/60 font-bold"

@@ -1,10 +1,12 @@
 import React from "react";
 import Image from "next/image";
-import { FEATURED_EXPEDITIONS } from "@/features/home/data/expeditions.data";
+import { getHomepageRides } from "@/features/rides";
 import { Badge } from "@/components/ui/Badge";
-import { Compass, MapPin, Gauge, Timer, ArrowUpRight } from "lucide-react";
+import { Compass, MapPin, Timer } from "lucide-react";
 
 export const HomeFeaturedExpeditions: React.FC = () => {
+  const expeditions = getHomepageRides();
+
   return (
     <section
       id="expeditions"
@@ -37,9 +39,9 @@ export const HomeFeaturedExpeditions: React.FC = () => {
           </div>
         </div>
 
-        {/* 3 Featured Expeditions Cards */}
+        {/* Featured Expeditions Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {FEATURED_EXPEDITIONS.map((exp) => (
+          {expeditions.map((exp) => (
             <div
               key={exp.id}
               className="group bg-zinc-900/40 hover:bg-zinc-900/70 border border-zinc-800/80 hover:border-amber-500/40 rounded-3xl overflow-hidden transition-all duration-300 flex flex-col justify-between"
@@ -48,8 +50,8 @@ export const HomeFeaturedExpeditions: React.FC = () => {
                 {/* Visual Header Image */}
                 <div className="relative h-56 w-full overflow-hidden">
                   <Image
-                    src={exp.image.src}
-                    alt={exp.image.alt}
+                    src={exp.coverImage}
+                    alt={exp.title}
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
@@ -58,7 +60,7 @@ export const HomeFeaturedExpeditions: React.FC = () => {
 
                   <div className="absolute top-4 left-4 z-10">
                     <Badge variant="amber" size="sm">
-                      {exp.category}
+                      {exp.typeLabel}
                     </Badge>
                   </div>
 
@@ -85,7 +87,7 @@ export const HomeFeaturedExpeditions: React.FC = () => {
                   </div>
 
                   <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
-                    {exp.summary}
+                    {exp.shortDescription}
                   </p>
 
                   <div className="flex flex-col gap-2 pt-2 border-t border-zinc-800/80 text-xs font-mono text-zinc-400">
