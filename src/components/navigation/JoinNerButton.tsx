@@ -23,7 +23,7 @@ export const JoinNerButton: React.FC<JoinNerButtonProps> = ({
 
   return (
     <Link
-      href="/contact"
+      href="/contact/"
       onClick={onClick}
       className={`group relative inline-flex items-center justify-center gap-2 font-mono uppercase font-bold text-zinc-950 bg-amber-500 hover:bg-amber-400 rounded-lg shadow-lg shadow-amber-500/15 hover:shadow-amber-500/30 transition-all duration-300 active:scale-95 cursor-pointer select-none ${sizeClasses[size]} ${className}`}
     >

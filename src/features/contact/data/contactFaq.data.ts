@@ -1,3 +1,5 @@
+import { ENV } from "@/config";
+
 export interface FaqItem {
   id: string;
   question: string;
@@ -68,7 +70,6 @@ export const CONTACT_FAQS_LIST: FaqItem[] = [
   {
     id: "follow-online",
     question: "Where can I follow NER online for updates?",
-    answer:
-      "You can follow our ride dispatches, route updates, and community media on Instagram (@nagpurenfieldriders), YouTube, and Facebook via the links in the footer.",
+    answer: `You can follow our ride dispatches, route updates, and community media on Instagram (${ENV.SOCIAL.INSTAGRAM_HANDLE}), YouTube, and Facebook via the links in the footer.`,
   },
 ];

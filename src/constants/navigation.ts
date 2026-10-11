@@ -1,3 +1,5 @@
+import { ENV } from "@/config";
+
 export interface NavLink {
   label: string;
   href: string;
@@ -28,10 +30,10 @@ export interface MegaMenuFeatured {
 
 export const HEADER_NAV_LINKS: NavLink[] = [
   { label: "Home", href: "/" },
-  { label: "About NER", href: "/about" },
-  { label: "Rides", href: "/rides" },
-  { label: "Events", href: "/events" },
-  { label: "Gallery", href: "/gallery" },
+  { label: "About NER", href: "/about/" },
+  { label: "Rides", href: "/rides/" },
+  { label: "Events", href: "/events/" },
+  { label: "Gallery", href: "/gallery/" },
 ];
 
 export const MEGA_MENU_CATEGORIES: Record<string, MegaMenuCategory> = {
@@ -40,17 +42,17 @@ export const MEGA_MENU_CATEGORIES: Record<string, MegaMenuCategory> = {
     items: [
       {
         label: "About NER",
-        href: "/about",
+        href: "/about/",
         description: "An authentic, independent fraternity of Enfield riders.",
       },
       {
         label: "Our Story",
-        href: "/about#story",
+        href: "/about/#story",
         description: "From India's Zero Mile to brotherhood across highways.",
       },
       {
         label: "Ride Culture",
-        href: "/about#culture",
+        href: "/about/#culture",
         description: "Discipline, camaraderie, and dawn highway tea stops.",
       },
     ],
@@ -60,17 +62,17 @@ export const MEGA_MENU_CATEGORIES: Record<string, MegaMenuCategory> = {
     items: [
       {
         label: "Rides",
-        href: "/rides",
+        href: "/rides/",
         description: "From sunrise breakfast runs to cross-country touring.",
       },
       {
         label: "Events",
-        href: "/events",
+        href: "/events/",
         description: "Annual gatherings, foundation runs & milestone expeditions.",
       },
       {
         label: "Safety Protocol",
-        href: "/about#protocols",
+        href: "/about/#protocols",
         description: "Strict staggered formation, protective gear & document rules.",
       },
     ],
@@ -80,7 +82,7 @@ export const MEGA_MENU_CATEGORIES: Record<string, MegaMenuCategory> = {
     items: [
       {
         label: "Gallery",
-        href: "/gallery",
+        href: "/gallery/",
         description: "Visual chronicles of bikes, passes, and asphalt ribbons.",
       },
       {
@@ -90,7 +92,7 @@ export const MEGA_MENU_CATEGORIES: Record<string, MegaMenuCategory> = {
       },
       {
         label: "Road Experiences",
-        href: "/about#story",
+        href: "/about/#story",
         description: "Dawn breakfast runs, forest corridors & interstate expeditions.",
       },
     ],
@@ -100,24 +102,24 @@ export const MEGA_MENU_CATEGORIES: Record<string, MegaMenuCategory> = {
     items: [
       {
         label: "Contact Us",
-        href: "/contact",
+        href: "/contact/",
         description: "Official dispatch desk for enquiries, coordinates & messages.",
       },
       {
         label: "Instagram",
-        href: "https://instagram.com",
+        href: ENV.SOCIAL.INSTAGRAM_URL,
         isExternal: true,
-        description: "@nagpurenfieldriders • Live ride dispatches.",
+        description: `${ENV.SOCIAL.INSTAGRAM_HANDLE} • Live ride dispatches.`,
       },
       {
         label: "YouTube",
-        href: "https://youtube.com",
+        href: ENV.SOCIAL.YOUTUBE_URL,
         isExternal: true,
         description: "Cinematic expedition films & documentary archives.",
       },
       {
         label: "Facebook",
-        href: "https://facebook.com",
+        href: ENV.SOCIAL.FACEBOOK_URL,
         isExternal: true,
         description: "Nagpur Enfield Riders official community page.",
       },
@@ -133,7 +135,7 @@ export const MEGA_MENU_FEATURED: MegaMenuFeatured = {
     "Synchronized thumps cutting through morning mist. Breakfast, chai, and an open national highway.",
   image: "/images/community/chai-dhaba-dawn.jpg",
   ctaLabel: "Explore Expeditions →",
-  ctaHref: "/rides",
+  ctaHref: "/rides/",
 };
 
 export interface FooterNavItem {
@@ -151,27 +153,27 @@ export const FOOTER_NAV_COLUMNS: FooterNavColumn[] = [
   {
     title: "EXPLORE",
     items: [
-      { label: "Rides", href: "/rides" },
-      { label: "Events", href: "/events" },
-      { label: "Gallery", href: "/gallery" },
+      { label: "Rides", href: "/rides/" },
+      { label: "Events", href: "/events/" },
+      { label: "Gallery", href: "/gallery/" },
       { label: "Destinations Radar", href: "/#destinations" },
     ],
   },
   {
     title: "ABOUT",
     items: [
-      { label: "About NER", href: "/about" },
-      { label: "Our Story", href: "/about#story" },
-      { label: "The Community", href: "/about#culture" },
-      { label: "Safety Code", href: "/about#protocols" },
+      { label: "About NER", href: "/about/" },
+      { label: "Our Story", href: "/about/#story" },
+      { label: "The Community", href: "/about/#culture" },
+      { label: "Safety Code", href: "/about/#protocols" },
     ],
   },
   {
     title: "CONNECT",
     items: [
-      { label: "Contact Us", href: "/contact" },
-      { label: "Join The Ride", href: "/contact" },
-      { label: "Zero Mile Base", href: "/about#story" },
+      { label: "Contact Us", href: "/contact/" },
+      { label: "Join The Ride", href: "/contact/" },
+      { label: "Zero Mile Base", href: "/about/#story" },
     ],
   },
   {

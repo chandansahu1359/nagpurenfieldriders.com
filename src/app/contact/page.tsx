@@ -9,8 +9,15 @@ export const metadata: Metadata = {
     title: "Contact Nagpur Enfield Riders | NER",
     description:
       "Connect with the independent Royal Enfield touring fraternity based in Nagpur, Maharashtra.",
-    url: "/contact",
+    url: "/contact/",
     type: "website",
+  },
+  robots: {
+    index: false,
+    follow: false,
+  },
+  alternates: {
+    canonical: "/contact/",
   },
 };
 

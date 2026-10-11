@@ -1,24 +1,25 @@
+import { ENV } from "@/config";
 import { SocialLink } from "@/types";
 
 export const SOCIAL_LINKS: SocialLink[] = [
   {
     platform: "Instagram",
-    label: "@nagpurenfieldriders",
-    href: "https://instagram.com",
+    label: ENV.SOCIAL.INSTAGRAM_HANDLE,
+    href: ENV.SOCIAL.INSTAGRAM_URL,
   },
   {
     platform: "YouTube",
     label: "Nagpur Enfield Riders Official",
-    href: "https://youtube.com",
+    href: ENV.SOCIAL.YOUTUBE_URL,
   },
   {
     platform: "Facebook",
     label: "Nagpur Enfield Riders Community",
-    href: "https://facebook.com",
+    href: ENV.SOCIAL.FACEBOOK_URL,
   },
   {
     platform: "Community",
     label: "NER Rider Circle & Brotherhood",
-    href: "/contact",
+    href: "/contact/",
   },
 ];

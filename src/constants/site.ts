@@ -1,3 +1,4 @@
+import { ENV } from "@/config";
 import { SiteConfig } from "@/types";
 
 export const SITE_CONFIG: SiteConfig = {
@@ -10,8 +11,8 @@ export const SITE_CONFIG: SiteConfig = {
   description:
     "Nagpur Enfield Riders (NER) is an independent motorcycle riding community headquartered in Nagpur, Maharashtra. Exploring the Indian subcontinent with brotherhood, safety, and respect for the road.",
   originCity: "Nagpur, Maharashtra",
-  zeroMileCoordinates: "21.149850°N 79.080598°E",
-  zeroMileMapsUrl: "https://www.google.com/maps?q=21.149850,79.080598",
+  zeroMileCoordinates: ENV.CONTACT.COORDINATES,
+  zeroMileMapsUrl: ENV.CONTACT.MAPS_URL,
   disclaimer:
     "Nagpur Enfield Riders (NER) is a self-governed independent riding fraternity. NER is not affiliated with, endorsed by, sponsored by, or an official entity of Royal Enfield or Eicher Motors Ltd.",
 };

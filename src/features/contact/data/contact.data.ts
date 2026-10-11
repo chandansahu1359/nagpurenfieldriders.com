@@ -1,3 +1,4 @@
+import { ENV } from "@/config";
 import { SITE_CONFIG } from "@/constants/site";
 
 export interface ContactChannel {
@@ -13,17 +14,17 @@ export const CONTACT_CHANNELS: ContactChannel[] = [
   {
     id: "email",
     label: "Direct Inquiries",
-    value: "contact@nagpurenfieldriders.com",
-    href: "mailto:contact@nagpurenfieldriders.com",
+    value: ENV.CONTACT.EMAIL,
+    href: `mailto:${ENV.CONTACT.EMAIL}`,
     subtext: "For ride invitations, collaboration & rider questions.",
   },
   {
     id: "location",
     label: "Headquarters & Origin",
-    value: "Zero Mile Stone, Nagpur, India",
-    href: SITE_CONFIG.zeroMileMapsUrl,
+    value: ENV.CONTACT.LOCATION,
+    href: ENV.CONTACT.MAPS_URL,
     isExternal: true,
-    subtext: "21.149850°N 79.080598°E • The geographic center of India.",
+    subtext: `${ENV.CONTACT.COORDINATES} • The geographic center of India.`,
   },
   {
     id: "rollout",

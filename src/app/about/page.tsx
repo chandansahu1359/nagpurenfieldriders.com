@@ -9,8 +9,15 @@ export const metadata: Metadata = {
     title: "About Nagpur Enfield Riders | NER",
     description:
       "A motorcycle community built around machines, roads, and people. Exploring India with safety, staggered formation, and authentic rider camaraderie.",
-    url: "/about",
+    url: "/about/",
     type: "website",
+  },
+  robots: {
+    index: false,
+    follow: false,
+  },
+  alternates: {
+    canonical: "/about/",
   },
 };
 

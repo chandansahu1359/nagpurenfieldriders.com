@@ -1,4 +1,5 @@
 import { ContactFormData } from "../schemas/contact.schema";
+import { ENV } from "@/config";
 
 interface RateLimitRecord {
   timestamps: number[];
@@ -81,7 +82,7 @@ export async function submitContactMessage(
   const messageId = `ner-${Date.now()}-${Math.random().toString(36).substring(2, 7)}`;
 
   // Server-side audit log without exposing personal data unnecessarily
-  if (process.env.NODE_ENV !== "production") {
+  if (ENV.IS_DEV) {
     const subjectTitle = "subject" in data && data.subject ? data.subject : `[${data.enquiryType}]`;
     console.info(
       `[NER Contact Dispatch] ${messageId} | Type: ${data.enquiryType} | Subject: "${subjectTitle}" | From: ${data.email} | IP: ${clientIp}`

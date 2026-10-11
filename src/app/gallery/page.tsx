@@ -18,6 +18,13 @@ export const metadata: Metadata = {
       },
     ],
   },
+  robots: {
+    index: false,
+    follow: false,
+  },
+  alternates: {
+    canonical: "/gallery/",
+  },
 };
 
 export default function Page() {

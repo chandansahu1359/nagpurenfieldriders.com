@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { ENV } from "@/config";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -22,6 +23,23 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL(ENV.SITE_URL),
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+    googleBot: {
+      index: false,
+      follow: false,
+      noimageindex: true,
+      "max-video-preview": -1,
+      "max-image-preview": "none",
+      "max-snippet": -1,
+    },
+  },
   title: "Nagpur Enfield Riders | Independent Royal Enfield Motorcycle Community (NER)",
   description:
     "Nagpur Enfield Riders (NER) is an independent Royal Enfield riding community based at India's Zero Mile in Nagpur. Built on brotherhood, disciplined highway touring, safety, and epic journeys across the subcontinent.",

@@ -34,18 +34,16 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({
 
   const isLinkActive = (href: string) => {
     if (!pathname) return false;
-    if (href === "/") {
-      return pathname === "/";
-    }
-    const cleanHref = href.split("#")[0];
+    const cleanHref = href.split("#")[0].replace(/\/+$/, "") || "/";
+    const cleanPath = pathname.split("#")[0].replace(/\/+$/, "") || "/";
     if (cleanHref === "/") {
-      return pathname === "/";
+      return cleanPath === "/";
     }
-    return pathname === cleanHref || pathname.startsWith(cleanHref + "/");
+    return cleanPath === cleanHref || cleanPath.startsWith(cleanHref + "/");
   };
 
   const isMoreActive =
-    pathname ? pathname === "/contact" || pathname.startsWith("/contact/") : false;
+    pathname ? pathname.replace(/\/+$/, "") === "/contact" : false;
 
   useEffect(() => {
     if (!isOpen || !menuRef.current) return;

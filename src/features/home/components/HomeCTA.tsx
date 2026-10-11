@@ -1,4 +1,5 @@
 import React from "react";
+import { ENV } from "@/config";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { SITE_CONFIG } from "@/constants/site";
@@ -64,7 +65,7 @@ export const HomeCTA: React.FC = () => {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
             <Button
-              href="mailto:contact@nagpurenfieldriders.com"
+              href={`mailto:${ENV.CONTACT.EMAIL}`}
               size="lg"
               variant="primary"
               icon={<ArrowRight className="w-4 h-4" />}
