@@ -37,7 +37,7 @@ export const AboutCTA: React.FC = () => {
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
           <Button
-            href="/contact"
+            href="/contact/"
             variant="primary"
             size="lg"
             icon={<ArrowRight className="w-4 h-4" />}

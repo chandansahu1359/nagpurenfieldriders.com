@@ -38,29 +38,33 @@ export const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
     >
       {HEADER_NAV_LINKS.map((link) => {
         const isActive = isLinkActive(link.href);
-        return (
-          <Link
-            key={link.label}
-            href={link.href}
-            aria-current={isActive ? "page" : undefined}
-            className={`text-xs font-mono uppercase tracking-wider py-1 relative group focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-amber-500 rounded transition-colors ${isActive
-              ? "text-amber-400"
-              : "text-zinc-300 hover:text-amber-400"
-              }`}
-          >
+        const isSamePageScroll = link.href.startsWith("#");
+        const linkProps = {
+          key: link.label,
+          href: link.href,
+          "aria-current": isActive ? ("page" as const) : undefined,
+          className: `text-xs font-mono uppercase tracking-wider py-1 relative group focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-amber-500 rounded transition-colors ${
+            isActive ? "text-amber-400" : "text-zinc-300 hover:text-amber-400"
+          }`,
+        };
+        const linkChildren = (
+          <>
             <span>{link.label}</span>
             {/* Glowing amber underline for active state */}
             <span
-              className={`absolute bottom-0 left-0 h-[2px] bg-amber-500 transition-all duration-300 ${isActive
-                ? "w-full shadow-[0_0_10px_rgba(245,158,11,0.8)]"
-                : "w-0 group-hover:w-full"
-                }`}
+              className={`absolute bottom-0 left-0 h-[2px] bg-amber-500 transition-all duration-300 ${
+                isActive
+                  ? "w-full shadow-[0_0_10px_rgba(245,158,11,0.8)]"
+                  : "w-0 group-hover:w-full"
+              }`}
             />
-            {/* Subtle top indicator dot when active */}
-            {/* {isActive && (
-              <span className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-amber-500 shadow-[0_0_6px_rgba(245,158,11,1)]" />
-            )} */}
-          </Link>
+          </>
+        );
+
+        return isSamePageScroll ? (
+          <Link {...linkProps}>{linkChildren}</Link>
+        ) : (
+          <a {...linkProps}>{linkChildren}</a>
         );
       })}
 

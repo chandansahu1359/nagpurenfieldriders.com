@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { FooterHero } from "./FooterHero";
 import { FooterNavigation } from "./FooterNavigation";
 import { SITE_CONFIG } from "@/constants/site";
@@ -26,13 +27,13 @@ export const Footer: React.FC = () => {
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 shrink-0">
             <div className="flex items-center gap-3 text-zinc-400">
-              <a href="#" className="hover:text-amber-400 transition-colors">
+              <Link href="#" className="hover:text-amber-400 transition-colors">
                 Privacy Policy
-              </a>
+              </Link>
               <span>•</span>
-              <a href="#" className="hover:text-amber-400 transition-colors">
+              <Link href="#" className="hover:text-amber-400 transition-colors">
                 Terms &amp; Conditions
-              </a>
+              </Link>
             </div>
             <span className="text-zinc-400">
               © 2026 {SITE_CONFIG.shortName}. ALL RIGHTS RESERVED.

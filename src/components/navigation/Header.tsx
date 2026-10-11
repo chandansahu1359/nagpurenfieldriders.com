@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { SITE_CONFIG } from "@/constants/site";
 import { DesktopNavigation } from "./DesktopNavigation";
 import { MegaMenu } from "./MegaMenu";
@@ -59,7 +58,7 @@ export const Header: React.FC = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Brand Identity / Logo */}
-          <Link
+          <a
             href="/"
             className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded-lg py-1"
             aria-label="Nagpur Enfield Riders Home"
@@ -88,7 +87,7 @@ export const Header: React.FC = () => {
                 Zero Mile Origin
               </span>
             </div>
-          </Link>
+          </a>
 
           {/* Desktop Navigation */}
           <DesktopNavigation

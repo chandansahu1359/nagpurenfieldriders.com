@@ -70,10 +70,22 @@ export const Button: React.FC<ButtonProps> = ({
         </a>
       );
     }
+
+    // In-page section scrolling uses <Link>, cross-page navigation uses <a> anchor tag
+    const isSamePageScroll = href.startsWith("#");
+
+    if (isSamePageScroll) {
+      return (
+        <Link href={href} className={combinedClasses}>
+          {content}
+        </Link>
+      );
+    }
+
     return (
-      <Link href={href} className={combinedClasses}>
+      <a href={href} className={combinedClasses}>
         {content}
-      </Link>
+      </a>
     );
   }
 

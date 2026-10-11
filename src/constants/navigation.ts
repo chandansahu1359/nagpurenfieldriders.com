@@ -181,7 +181,7 @@ export const FOOTER_NAV_COLUMNS: FooterNavColumn[] = [
     items: [
       { label: "Privacy Policy", href: "#" },
       { label: "Terms & Conditions", href: "#" },
-      { label: "Community Guidelines", href: "/about#protocols" },
+      { label: "Community Guidelines", href: "/about/#protocols" },
     ],
   },
 ];

@@ -13,7 +13,7 @@ export const FooterNavigation: React.FC = () => {
         {/* Brand & Origin Column (4 cols) */}
         <div className="lg:col-span-4 flex flex-col justify-between gap-6">
           <div className="flex flex-col gap-4">
-            <Link href="/" className="flex items-center gap-3.5 group w-fit">
+            <a href="/" className="flex items-center gap-3.5 group w-fit">
               <div className="relative w-16 h-16 shrink-0 flex items-center justify-center group-hover:scale-105 transition-transform">
                 <Image
                   src="/ner-logo.png"
@@ -32,7 +32,7 @@ export const FooterNavigation: React.FC = () => {
                   NAGPUR • INDIA
                 </span>
               </div>
-            </Link>
+            </a>
 
             <p className="text-sm text-zinc-400 leading-relaxed max-w-sm">
               Headquartered at India&apos;s Zero Mile Stone in Nagpur. A self-governed
@@ -77,13 +77,20 @@ export const FooterNavigation: React.FC = () => {
                         <span>{item.label}</span>
                         <ArrowUpRight className="w-2.5 h-2.5 text-zinc-600 group-hover:text-amber-400 transition-colors" />
                       </a>
-                    ) : (
+                    ) : item.href.startsWith("#") ? (
                       <Link
                         href={item.href}
                         className="text-xs font-mono text-zinc-400 hover:text-white transition-colors flex items-center justify-between group"
                       >
                         <span>{item.label}</span>
                       </Link>
+                    ) : (
+                      <a
+                        href={item.href}
+                        className="text-xs font-mono text-zinc-400 hover:text-white transition-colors flex items-center justify-between group"
+                      >
+                        <span>{item.label}</span>
+                      </a>
                     )}
                   </li>
                 ))}

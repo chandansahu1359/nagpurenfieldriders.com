@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { Ride } from "../types";
 import {
   Calendar,
@@ -147,20 +146,20 @@ export const RidesFeatured: React.FC<RidesFeaturedProps> = ({ ride }) => {
 
             {/* Right Action */}
             <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3">
-              <Link
-                href="/contact"
+              <a
+                href="/contact/"
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-amber-500 text-black font-display font-bold uppercase text-xs tracking-wider hover:bg-amber-400 transition-colors shadow-lg shadow-amber-500/20"
               >
                 Inquire With Dispatch Desk
                 <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-              <Link
-                href="/about#protocols"
+              </a>
+              <a
+                href="/about/#protocols"
                 className="w-full inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl border border-zinc-800 text-zinc-300 hover:text-white font-mono text-xs uppercase tracking-wider transition-colors"
               >
                 <Compass className="w-3.5 h-3.5 text-amber-500" />
                 View Formation Protocol
-              </Link>
+              </a>
             </div>
           </div>
         </div>

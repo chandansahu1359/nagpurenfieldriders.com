@@ -16,11 +16,11 @@ interface MobileNavigationProps {
 }
 
 const MORE_LINKS = [
-  { label: "Our Story", href: "/about#story" },
-  { label: "Community", href: "/about#culture" },
-  { label: "Ride Culture", href: "/about#culture" },
-  { label: "Safety Protocol", href: "/about#protocols" },
-  { label: "Contact Us", href: "/contact" },
+  { label: "Our Story", href: "/about/#story" },
+  { label: "Community", href: "/about/#culture" },
+  { label: "Ride Culture", href: "/about/#culture" },
+  { label: "Safety Protocol", href: "/about/#protocols" },
+  { label: "Contact Us", href: "/contact/" },
 ];
 
 export const MobileNavigation: React.FC<MobileNavigationProps> = ({
@@ -104,7 +104,7 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({
     >
       {/* Top Header Bar */}
       <div className="flex items-center justify-between pb-6 border-b border-zinc-800/80">
-        <Link
+        <a
           href="/"
           onClick={onClose}
           className="flex items-center gap-3"
@@ -128,7 +128,7 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({
               Zero Mile Origin
             </span>
           </div>
-        </Link>
+        </a>
 
         <button
           onClick={onClose}
@@ -146,30 +146,40 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({
       >
         {HEADER_NAV_LINKS.map((link) => {
           const isActive = isLinkActive(link.href);
+          const isSamePageScroll = link.href.startsWith("#");
+          const linkProps = {
+            href: link.href,
+            onClick: onClose,
+            "aria-current": isActive ? ("page" as const) : undefined,
+            className: `text-3xl sm:text-4xl font-black uppercase tracking-tight transition-all flex items-center justify-between py-1.5 px-2 rounded-xl group ${
+              isActive
+                ? "text-amber-400 bg-amber-500/10 border-l-4 border-amber-500 pl-3.5"
+                : "text-zinc-200 hover:text-amber-400"
+            }`,
+          };
+          const linkChildren = (
+            <>
+              <span>{link.label}</span>
+              {isActive ? (
+                <span className="flex items-center gap-1.5 text-amber-400 font-mono text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-full bg-amber-500/20 border border-amber-500/40">
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+                  ACTIVE
+                </span>
+              ) : (
+                <span className="text-zinc-600 text-sm font-mono opacity-0 group-hover:opacity-100 transition-opacity">
+                  →
+                </span>
+              )}
+            </>
+          );
+
           return (
             <div key={link.label} className="mobile-nav-item">
-              <Link
-                href={link.href}
-                onClick={onClose}
-                aria-current={isActive ? "page" : undefined}
-                className={`text-3xl sm:text-4xl font-black uppercase tracking-tight transition-all flex items-center justify-between py-1.5 px-2 rounded-xl group ${
-                  isActive
-                    ? "text-amber-400 bg-amber-500/10 border-l-4 border-amber-500 pl-3.5"
-                    : "text-zinc-200 hover:text-amber-400"
-                }`}
-              >
-                <span>{link.label}</span>
-                {isActive ? (
-                  <span className="flex items-center gap-1.5 text-amber-400 font-mono text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-full bg-amber-500/20 border border-amber-500/40">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
-                    ACTIVE
-                  </span>
-                ) : (
-                  <span className="text-zinc-600 text-sm font-mono opacity-0 group-hover:opacity-100 transition-opacity">
-                    →
-                  </span>
-                )}
-              </Link>
+              {isSamePageScroll ? (
+                <Link {...linkProps}>{linkChildren}</Link>
+              ) : (
+                <a {...linkProps}>{linkChildren}</a>
+              )}
             </div>
           );
         })}
@@ -202,24 +212,32 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({
             <div className="grid grid-cols-2 gap-3 pt-4 pb-2 pl-2 animate-in fade-in duration-200">
               {MORE_LINKS.map((item) => {
                 const isActive = isLinkActive(item.href);
-                return (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    onClick={onClose}
-                    aria-current={isActive ? "page" : undefined}
-                    className={`text-sm font-mono py-1.5 transition-colors flex items-center gap-1.5 ${
-                      isActive
-                        ? "text-amber-400 font-bold"
-                        : "text-zinc-400 hover:text-amber-400"
-                    }`}
-                  >
+                const isSamePageScroll = item.href.startsWith("#");
+                const itemProps = {
+                  key: item.label,
+                  href: item.href,
+                  onClick: onClose,
+                  "aria-current": isActive ? ("page" as const) : undefined,
+                  className: `text-sm font-mono py-1.5 transition-colors flex items-center gap-1.5 ${
+                    isActive
+                      ? "text-amber-400 font-bold"
+                      : "text-zinc-400 hover:text-amber-400"
+                  }`,
+                };
+                const itemChildren = (
+                  <>
                     <span className={`text-xs ${isActive ? "text-amber-400" : "text-amber-500"}`}>•</span>
                     <span>{item.label}</span>
                     {isActive && (
                       <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse ml-auto" />
                     )}
-                  </Link>
+                  </>
+                );
+
+                return isSamePageScroll ? (
+                  <Link {...itemProps}>{itemChildren}</Link>
+                ) : (
+                  <a {...itemProps}>{itemChildren}</a>
                 );
               })}
             </div>

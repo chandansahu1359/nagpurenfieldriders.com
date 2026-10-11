@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { CommunityEvent } from "../types";
 import {
   Calendar,
@@ -103,19 +102,19 @@ export const EventsFeatured: React.FC<EventsFeaturedProps> = ({ event }) => {
 
             {/* CTAs */}
             <div className="mt-8 pt-6 border-t border-zinc-900 flex flex-col sm:flex-row gap-3">
-              <Link
-                href="/contact"
+              <a
+                href="/contact/"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-amber-500 text-black font-display font-bold uppercase text-xs tracking-wider hover:bg-amber-400 transition-colors shadow-lg shadow-amber-500/20"
               >
                 Register Interest via Dispatch Desk
                 <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-              <Link
-                href="/about#culture"
+              </a>
+              <a
+                href="/about/#culture"
                 className="inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl border border-zinc-800 text-zinc-300 hover:text-white font-mono text-xs uppercase tracking-wider transition-colors"
               >
                 Community Code of Conduct
-              </Link>
+              </a>
             </div>
           </div>
 

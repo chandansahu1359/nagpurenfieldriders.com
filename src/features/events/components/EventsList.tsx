@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { CommunityEvent } from "../types";
 import {
   CalendarDays,
@@ -113,13 +112,13 @@ export const EventsList: React.FC<EventsListProps> = ({ events }) => {
                   </div>
 
                   <div className="pt-6 mt-4 border-t border-zinc-900">
-                    <Link
-                      href="/contact"
+                    <a
+                      href="/contact/"
                       className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-amber-400 hover:text-amber-300 font-bold transition-colors"
                     >
                       Inquire via Community Desk
                       <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                    </Link>
+                    </a>
                   </div>
                 </div>
 

@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Header } from "@/components/navigation/Header";
 import { Footer } from "@/components/footer/Footer";
@@ -150,13 +149,13 @@ export default function NotFound() {
 
             {/* Primary Navigation Actions */}
             <div className="flex flex-wrap items-center justify-center gap-3.5 w-full">
-              <Link
+              <a
                 href="/"
                 className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-zinc-950 font-mono font-bold text-xs uppercase tracking-wider transition-all transform hover:-translate-y-0.5 shadow-lg shadow-amber-500/20"
               >
                 <Home className="w-4 h-4 shrink-0" />
                 <span>Return to Zero Mile (Home)</span>
-              </Link>
+              </a>
 
               <button
                 onClick={handleGoBack}
@@ -167,13 +166,13 @@ export default function NotFound() {
                 <span>Retrace Your Path (Back)</span>
               </button>
 
-              <Link
+              <a
                 href="/contact/"
                 className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-zinc-900/40 hover:bg-zinc-900 border border-zinc-800/60 hover:border-amber-500/40 text-zinc-400 hover:text-amber-400 font-mono text-xs uppercase tracking-wider transition-all"
               >
                 <Navigation className="w-3.5 h-3.5 shrink-0" />
                 <span>Dispatch Desk (Contact)</span>
-              </Link>
+              </a>
             </div>
           </div>
 
@@ -197,7 +196,7 @@ export default function NotFound() {
               {WAYPOINTS.map((wp) => {
                 const IconComponent = wp.icon;
                 return (
-                  <Link
+                  <a
                     key={wp.code}
                     href={wp.href}
                     className="group relative flex flex-col justify-between p-5 rounded-2xl bg-zinc-900/40 hover:bg-zinc-900/80 border border-zinc-800/80 hover:border-amber-500/40 transition-all duration-300 transform hover:-translate-y-1 overflow-hidden"
@@ -230,7 +229,7 @@ export default function NotFound() {
                       <span>Reroute Trail</span>
                       <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </div>
-                  </Link>
+                  </a>
                 );
               })}
             </div>

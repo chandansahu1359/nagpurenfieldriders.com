@@ -151,13 +151,13 @@ export const MegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
               </div>
 
               <div className="pt-4 border-t border-zinc-800">
-                <Link
+                <a
                   href={MEGA_MENU_FEATURED.ctaHref}
                   onClick={onClose}
                   className="inline-flex items-center gap-1 text-xs font-mono font-bold uppercase tracking-wider text-amber-400 hover:text-amber-300 transition-colors"
                 >
                   <span>{MEGA_MENU_FEATURED.ctaLabel}</span>
-                </Link>
+                </a>
               </div>
             </div>
           </div>
@@ -193,45 +193,55 @@ export const MegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                               {item.description}
                             </span>
                           </a>
-                        ) : (
-                          <Link
-                            href={item.href}
-                            onClick={onClose}
-                            aria-current={isActive ? "page" : undefined}
-                            className={`flex flex-col gap-0.5 p-1 rounded-lg transition-colors ${
+                        ) : (() => {
+                          const isSamePageScroll = item.href.startsWith("#");
+                          const subProps = {
+                            href: item.href,
+                            onClick: onClose,
+                            "aria-current": isActive ? ("page" as const) : undefined,
+                            className: `flex flex-col gap-0.5 p-1 rounded-lg transition-colors ${
                               isActive
                                 ? "bg-amber-500/10 border-l-2 border-amber-500 pl-2"
                                 : ""
-                            }`}
-                          >
-                            <span
-                              className={`text-sm font-semibold tracking-wide transition-colors flex items-center justify-between ${
-                                isActive
-                                  ? "text-amber-400 font-bold"
-                                  : "text-zinc-200 group-hover/item:text-amber-400"
-                              }`}
-                            >
-                              <span className="flex items-center gap-1.5">
-                                <span>{item.label}</span>
-                                {isActive && (
-                                  <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
-                                )}
-                              </span>
+                            }`,
+                          };
+                          const subChildren = (
+                            <>
                               <span
-                                className={`text-xs transition-all ${
+                                className={`text-sm font-semibold tracking-wide transition-colors flex items-center justify-between ${
                                   isActive
-                                    ? "text-amber-400 opacity-100"
-                                    : "text-zinc-600 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-0.5"
+                                    ? "text-amber-400 font-bold"
+                                    : "text-zinc-200 group-hover/item:text-amber-400"
                                 }`}
                               >
-                                →
+                                <span className="flex items-center gap-1.5">
+                                  <span>{item.label}</span>
+                                  {isActive && (
+                                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+                                  )}
+                                </span>
+                                <span
+                                  className={`text-xs transition-all ${
+                                    isActive
+                                      ? "text-amber-400 opacity-100"
+                                      : "text-zinc-600 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-0.5"
+                                  }`}
+                                >
+                                  →
+                                </span>
                               </span>
-                            </span>
-                            <span className="text-[11px] text-zinc-500 group-hover/item:text-zinc-400 leading-tight transition-colors">
-                              {item.description}
-                            </span>
-                          </Link>
-                        )}
+                              <span className="text-[11px] text-zinc-500 group-hover/item:text-zinc-400 leading-tight transition-colors">
+                                {item.description}
+                              </span>
+                            </>
+                          );
+
+                          return isSamePageScroll ? (
+                            <Link {...subProps}>{subChildren}</Link>
+                          ) : (
+                            <a {...subProps}>{subChildren}</a>
+                          );
+                        })()}
                       </li>
                     );
                   })}

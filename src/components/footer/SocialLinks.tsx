@@ -72,14 +72,26 @@ export const SocialLinks: React.FC = () => {
             );
           }
 
+          if (link.href.startsWith("#")) {
+            return (
+              <Link
+                key={link.platform}
+                href={link.href}
+                className="group flex items-center justify-between p-2.5 rounded-xl bg-zinc-900/60 hover:bg-zinc-900 border border-zinc-800/80 hover:border-amber-500/40 transition-all text-xs font-mono text-zinc-300 hover:text-white"
+              >
+                {innerContent}
+              </Link>
+            );
+          }
+
           return (
-            <Link
+            <a
               key={link.platform}
               href={link.href}
               className="group flex items-center justify-between p-2.5 rounded-xl bg-zinc-900/60 hover:bg-zinc-900 border border-zinc-800/80 hover:border-amber-500/40 transition-all text-xs font-mono text-zinc-300 hover:text-white"
             >
               {innerContent}
-            </Link>
+            </a>
           );
         })}
       </div>

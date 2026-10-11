@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowUpRight, Compass } from "lucide-react";
 
 export const FooterHero: React.FC = () => {
@@ -44,21 +45,21 @@ export const FooterHero: React.FC = () => {
 
         {/* Strong Final Invitations (Not SaaS Conversion) */}
         <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-          <a
+          <Link
             href="#connect"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl font-mono text-sm uppercase tracking-wider font-bold bg-amber-500 hover:bg-amber-400 text-zinc-950 shadow-xl shadow-amber-500/20 hover:shadow-amber-500/35 transition-all duration-300 active:scale-95"
           >
             <span>JOIN NER</span>
             <ArrowUpRight className="w-4 h-4" />
-          </a>
+          </Link>
 
-          <a
+          <Link
             href="#destinations"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl font-mono text-sm uppercase tracking-wider font-semibold text-zinc-200 hover:text-white bg-zinc-900/80 hover:bg-zinc-800 border border-zinc-700/80 hover:border-amber-500/50 transition-all duration-300 active:scale-95"
           >
             <span>EXPLORE RIDES</span>
             <span className="text-zinc-500 text-xs font-mono">→</span>
-          </a>
+          </Link>
         </div>
       </div>
     </div>
