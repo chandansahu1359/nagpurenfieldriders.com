@@ -17,8 +17,8 @@ export const SOCIAL_LINKS: SocialLink[] = [
     href: "https://facebook.com",
   },
   {
-    platform: "Community Contact",
-    label: "contact@nagpurenfieldriders.com",
-    href: "mailto:contact@nagpurenfieldriders.com",
+    platform: "Community",
+    label: "NER Rider Circle & Brotherhood",
+    href: "/contact",
   },
 ];

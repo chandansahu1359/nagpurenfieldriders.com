@@ -1,63 +1,30 @@
 import React from "react";
+import Link from "next/link";
 import { SOCIAL_LINKS } from "@/constants/social";
 import { ArrowUpRight, Mail } from "lucide-react";
-
-const InstagramIcon = () => (
-  <svg
-    className="w-4 h-4"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-  </svg>
-);
-
-const YoutubeIcon = () => (
-  <svg
-    className="w-4 h-4"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
-    <polygon points="10 15 15 12 10 9 10 15" fill="currentColor" />
-  </svg>
-);
-
-const FacebookIcon = () => (
-  <svg
-    className="w-4 h-4"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-  </svg>
-);
+import {
+  InstagramIcon,
+  YoutubeIcon,
+  FacebookIcon,
+  CommunityIcon,
+} from "@/components/ui/SocialIcons";
 
 export const SocialLinks: React.FC = () => {
   const getIcon = (platform: string) => {
     switch (platform.toLowerCase()) {
       case "instagram":
-        return <InstagramIcon />;
+        return <InstagramIcon className="w-[18px] h-[18px] shrink-0 group-hover:scale-110 transition-transform duration-300" />;
       case "youtube":
-        return <YoutubeIcon />;
+        return <YoutubeIcon className="w-[18px] h-[18px] shrink-0 group-hover:scale-110 transition-transform duration-300" />;
       case "facebook":
-        return <FacebookIcon />;
+        return <FacebookIcon className="w-[18px] h-[18px] shrink-0 group-hover:scale-110 transition-transform duration-300" />;
+      case "community":
+      case "community contact":
+        return (
+          <CommunityIcon className="w-[18px] h-[18px] shrink-0 text-amber-500 group-hover:text-amber-400 group-hover:scale-110 transition-all duration-300" />
+        );
       default:
-        return <Mail className="w-4 h-4" />;
+        return <Mail className="w-[18px] h-[18px] shrink-0 text-zinc-400 group-hover:text-amber-400 transition-colors" />;
     }
   };
 
@@ -73,25 +40,50 @@ export const SocialLinks: React.FC = () => {
       </div>
 
       <div className="flex flex-col gap-2 pt-1">
-        {SOCIAL_LINKS.map((link) => (
-          <a
-            key={link.platform}
-            href={link.href}
-            target={link.href.startsWith("http") ? "_blank" : undefined}
-            rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-            className="group flex items-center justify-between p-2.5 rounded-xl bg-zinc-900/60 hover:bg-zinc-900 border border-zinc-800/80 hover:border-amber-500/40 transition-all text-xs font-mono text-zinc-300 hover:text-white"
-          >
-            <div className="flex items-center gap-2.5">
-              <span className="text-zinc-400 group-hover:text-amber-400 transition-colors">
-                {getIcon(link.platform)}
-              </span>
-              <span>{link.platform}</span>
-            </div>
+        {SOCIAL_LINKS.map((link) => {
+          const isExternal = link.href.startsWith("http") || link.href.startsWith("mailto:");
 
-            <ArrowUpRight className="w-3.5 h-3.5 text-zinc-500 group-hover:text-amber-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-          </a>
-        ))}
+          const innerContent = (
+            <>
+              <div className="flex items-center gap-3">
+                <span className="flex items-center justify-center shrink-0 w-6 h-6 transition-colors">
+                  {getIcon(link.platform)}
+                </span>
+                <span className="font-semibold text-zinc-200 group-hover:text-white transition-colors">
+                  {link.platform}
+                </span>
+              </div>
+
+              <ArrowUpRight className="w-3.5 h-3.5 text-zinc-500 group-hover:text-amber-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+            </>
+          );
+
+          if (isExternal) {
+            return (
+              <a
+                key={link.platform}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-between p-2.5 rounded-xl bg-zinc-900/60 hover:bg-zinc-900 border border-zinc-800/80 hover:border-amber-500/40 transition-all text-xs font-mono text-zinc-300 hover:text-white"
+              >
+                {innerContent}
+              </a>
+            );
+          }
+
+          return (
+            <Link
+              key={link.platform}
+              href={link.href}
+              className="group flex items-center justify-between p-2.5 rounded-xl bg-zinc-900/60 hover:bg-zinc-900 border border-zinc-800/80 hover:border-amber-500/40 transition-all text-xs font-mono text-zinc-300 hover:text-white"
+            >
+              {innerContent}
+            </Link>
+          );
+        })}
       </div>
     </div>
   );
 };
+

@@ -67,17 +67,24 @@ export const FooterNavigation: React.FC = () => {
               <ul className="flex flex-col gap-2.5">
                 {col.items.map((item) => (
                   <li key={item.label}>
-                    <a
-                      href={item.href}
-                      target={item.isExternal ? "_blank" : undefined}
-                      rel={item.isExternal ? "noopener noreferrer" : undefined}
-                      className="text-xs font-mono text-zinc-400 hover:text-white transition-colors flex items-center justify-between group"
-                    >
-                      <span>{item.label}</span>
-                      {item.isExternal && (
+                    {item.isExternal ? (
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs font-mono text-zinc-400 hover:text-white transition-colors flex items-center justify-between group"
+                      >
+                        <span>{item.label}</span>
                         <ArrowUpRight className="w-2.5 h-2.5 text-zinc-600 group-hover:text-amber-400 transition-colors" />
-                      )}
-                    </a>
+                      </a>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        className="text-xs font-mono text-zinc-400 hover:text-white transition-colors flex items-center justify-between group"
+                      >
+                        <span>{item.label}</span>
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>

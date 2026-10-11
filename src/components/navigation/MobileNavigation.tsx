@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { HEADER_NAV_LINKS } from "@/constants/navigation";
 import { SITE_CONFIG } from "@/constants/site";
 import { registerGSAP } from "@/lib/gsap";
@@ -15,12 +16,11 @@ interface MobileNavigationProps {
 }
 
 const MORE_LINKS = [
-  { label: "Our Story", href: "#brotherhood" },
-  { label: "Community", href: "#brotherhood" },
-  { label: "Ride Culture", href: "#brotherhood" },
-  { label: "Safety Protocol", href: "#creed" },
-  { label: "Stories & Logs", href: "#brotherhood" },
-  { label: "Contact Us", href: "mailto:contact@nagpurenfieldriders.com" },
+  { label: "Our Story", href: "/about#story" },
+  { label: "Community", href: "/about#culture" },
+  { label: "Ride Culture", href: "/about#culture" },
+  { label: "Safety Protocol", href: "/about#protocols" },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 export const MobileNavigation: React.FC<MobileNavigationProps> = ({
@@ -30,6 +30,22 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({
   const [isMoreExpanded, setIsMoreExpanded] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const linksContainerRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+
+  const isLinkActive = (href: string) => {
+    if (!pathname) return false;
+    if (href === "/") {
+      return pathname === "/";
+    }
+    const cleanHref = href.split("#")[0];
+    if (cleanHref === "/") {
+      return pathname === "/";
+    }
+    return pathname === cleanHref || pathname.startsWith(cleanHref + "/");
+  };
+
+  const isMoreActive =
+    pathname ? pathname === "/contact" || pathname.startsWith("/contact/") : false;
 
   useEffect(() => {
     if (!isOpen || !menuRef.current) return;
@@ -130,29 +146,53 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({
         ref={linksContainerRef}
         className="flex-1 py-8 flex flex-col justify-center gap-4 sm:gap-6"
       >
-        {HEADER_NAV_LINKS.map((link) => (
-          <div key={link.label} className="mobile-nav-item">
-            <a
-              href={link.href}
-              onClick={onClose}
-              className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-zinc-200 hover:text-amber-400 transition-colors flex items-center justify-between py-1 group"
-            >
-              <span>{link.label}</span>
-              <span className="text-zinc-600 text-sm font-mono opacity-0 group-hover:opacity-100 transition-opacity">
-                →
-              </span>
-            </a>
-          </div>
-        ))}
+        {HEADER_NAV_LINKS.map((link) => {
+          const isActive = isLinkActive(link.href);
+          return (
+            <div key={link.label} className="mobile-nav-item">
+              <Link
+                href={link.href}
+                onClick={onClose}
+                aria-current={isActive ? "page" : undefined}
+                className={`text-3xl sm:text-4xl font-black uppercase tracking-tight transition-all flex items-center justify-between py-1.5 px-2 rounded-xl group ${
+                  isActive
+                    ? "text-amber-400 bg-amber-500/10 border-l-4 border-amber-500 pl-3.5"
+                    : "text-zinc-200 hover:text-amber-400"
+                }`}
+              >
+                <span>{link.label}</span>
+                {isActive ? (
+                  <span className="flex items-center gap-1.5 text-amber-400 font-mono text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-full bg-amber-500/20 border border-amber-500/40">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+                    ACTIVE
+                  </span>
+                ) : (
+                  <span className="text-zinc-600 text-sm font-mono opacity-0 group-hover:opacity-100 transition-opacity">
+                    →
+                  </span>
+                )}
+              </Link>
+            </div>
+          );
+        })}
 
         {/* MORE Accordion */}
         <div className="mobile-nav-item pt-2 border-t border-zinc-900">
           <button
             onClick={() => setIsMoreExpanded(!isMoreExpanded)}
-            className="w-full text-3xl sm:text-4xl font-black uppercase tracking-tight text-zinc-200 hover:text-amber-400 transition-colors flex items-center justify-between py-1 cursor-pointer"
+            className={`w-full text-3xl sm:text-4xl font-black uppercase tracking-tight transition-colors flex items-center justify-between py-1.5 px-2 cursor-pointer ${
+              isMoreActive
+                ? "text-amber-400"
+                : "text-zinc-200 hover:text-amber-400"
+            }`}
             aria-expanded={isMoreExpanded}
           >
-            <span>MORE</span>
+            <span className="flex items-center gap-2">
+              <span>MORE</span>
+              {isMoreActive && (
+                <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+              )}
+            </span>
             <ChevronDown
               className={`w-6 h-6 text-zinc-400 transition-transform duration-300 ${
                 isMoreExpanded ? "rotate-180 text-amber-500" : ""
@@ -162,17 +202,28 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({
 
           {isMoreExpanded && (
             <div className="grid grid-cols-2 gap-3 pt-4 pb-2 pl-2 animate-in fade-in duration-200">
-              {MORE_LINKS.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  onClick={onClose}
-                  className="text-sm font-mono text-zinc-400 hover:text-amber-400 py-1.5 transition-colors flex items-center gap-1.5"
-                >
-                  <span className="text-amber-500 text-xs">•</span>
-                  <span>{item.label}</span>
-                </a>
-              ))}
+              {MORE_LINKS.map((item) => {
+                const isActive = isLinkActive(item.href);
+                return (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    onClick={onClose}
+                    aria-current={isActive ? "page" : undefined}
+                    className={`text-sm font-mono py-1.5 transition-colors flex items-center gap-1.5 ${
+                      isActive
+                        ? "text-amber-400 font-bold"
+                        : "text-zinc-400 hover:text-amber-400"
+                    }`}
+                  >
+                    <span className={`text-xs ${isActive ? "text-amber-400" : "text-amber-500"}`}>•</span>
+                    <span>{item.label}</span>
+                    {isActive && (
+                      <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse ml-auto" />
+                    )}
+                  </Link>
+                );
+              })}
             </div>
           )}
         </div>

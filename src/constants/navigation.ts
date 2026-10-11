@@ -28,10 +28,10 @@ export interface MegaMenuFeatured {
 
 export const HEADER_NAV_LINKS: NavLink[] = [
   { label: "Home", href: "/" },
-  { label: "About NER", href: "#brotherhood" },
-  { label: "Rides", href: "#expeditions" },
-  { label: "Events", href: "#expeditions" },
-  { label: "Gallery", href: "#destinations" },
+  { label: "About NER", href: "/about" },
+  { label: "Rides", href: "/rides" },
+  { label: "Events", href: "/events" },
+  { label: "Gallery", href: "/gallery" },
 ];
 
 export const MEGA_MENU_CATEGORIES: Record<string, MegaMenuCategory> = {
@@ -39,18 +39,18 @@ export const MEGA_MENU_CATEGORIES: Record<string, MegaMenuCategory> = {
     title: "ABOUT",
     items: [
       {
-        label: "Our Story",
-        href: "#brotherhood",
-        description: "From India's Zero Mile to brotherhood across highways.",
-      },
-      {
-        label: "Community",
-        href: "#brotherhood",
+        label: "About NER",
+        href: "/about",
         description: "An authentic, independent fraternity of Enfield riders.",
       },
       {
+        label: "Our Story",
+        href: "/about#story",
+        description: "From India's Zero Mile to brotherhood across highways.",
+      },
+      {
         label: "Ride Culture",
-        href: "#brotherhood",
+        href: "/about#culture",
         description: "Discipline, camaraderie, and dawn highway tea stops.",
       },
     ],
@@ -60,17 +60,17 @@ export const MEGA_MENU_CATEGORIES: Record<string, MegaMenuCategory> = {
     items: [
       {
         label: "Rides",
-        href: "#expeditions",
+        href: "/rides",
         description: "From sunrise breakfast runs to cross-country touring.",
       },
       {
         label: "Events",
-        href: "#expeditions",
+        href: "/events",
         description: "Annual gatherings, foundation runs & milestone expeditions.",
       },
       {
         label: "Safety Protocol",
-        href: "#creed",
+        href: "/about#protocols",
         description: "Strict staggered formation, protective gear & document rules.",
       },
     ],
@@ -80,18 +80,18 @@ export const MEGA_MENU_CATEGORIES: Record<string, MegaMenuCategory> = {
     items: [
       {
         label: "Gallery",
-        href: "#destinations",
+        href: "/gallery",
         description: "Visual chronicles of bikes, passes, and asphalt ribbons.",
       },
       {
-        label: "Stories & Logs",
-        href: "#brotherhood",
-        description: "Tales written by odometer miles across the subcontinent.",
+        label: "Destinations Radar",
+        href: "/#destinations",
+        description: "Routes radiating outward from Zero Mile to Ladakh & Goa.",
       },
       {
-        label: "Destinations",
-        href: "#destinations",
-        description: "Routes radiating outward from Zero Mile to Ladakh & Goa.",
+        label: "Road Experiences",
+        href: "/about#story",
+        description: "Dawn breakfast runs, forest corridors & interstate expeditions.",
       },
     ],
   },
@@ -100,8 +100,8 @@ export const MEGA_MENU_CATEGORIES: Record<string, MegaMenuCategory> = {
     items: [
       {
         label: "Contact Us",
-        href: "mailto:contact@nagpurenfieldriders.com",
-        description: "Ride coordination, member inquiries & headquarters.",
+        href: "/contact",
+        description: "Official dispatch desk for enquiries, coordinates & messages.",
       },
       {
         label: "Instagram",
@@ -128,12 +128,12 @@ export const MEGA_MENU_CATEGORIES: Record<string, MegaMenuCategory> = {
 export const MEGA_MENU_FEATURED: MegaMenuFeatured = {
   badge: "NEXT EXPEDITION",
   title: "THE PACK RIDES AT DAWN",
-  subtitle: "5:30 AM Rollout • Zero Mile Stone",
+  subtitle: "5:00 AM Rollout • Zero Mile Stone",
   description:
     "Synchronized thumps cutting through morning mist. Breakfast, chai, and an open national highway.",
   image: "/images/community/chai-dhaba-dawn.jpg",
   ctaLabel: "Explore Expeditions →",
-  ctaHref: "#expeditions",
+  ctaHref: "/rides",
 };
 
 export interface FooterNavItem {
@@ -151,30 +151,27 @@ export const FOOTER_NAV_COLUMNS: FooterNavColumn[] = [
   {
     title: "EXPLORE",
     items: [
-      { label: "Rides", href: "#expeditions" },
-      { label: "Events", href: "#expeditions" },
-      { label: "Gallery", href: "#destinations" },
-      { label: "Stories", href: "#brotherhood" },
-      { label: "Destinations Radar", href: "#destinations" },
+      { label: "Rides", href: "/rides" },
+      { label: "Events", href: "/events" },
+      { label: "Gallery", href: "/gallery" },
+      { label: "Destinations Radar", href: "/#destinations" },
     ],
   },
   {
     title: "ABOUT",
     items: [
-      { label: "About NER", href: "#brotherhood" },
-      { label: "Our Story", href: "#brotherhood" },
-      { label: "The Community", href: "#brotherhood" },
-      { label: "Ride Culture", href: "#brotherhood" },
-      { label: "Safety Code", href: "#creed" },
+      { label: "About NER", href: "/about" },
+      { label: "Our Story", href: "/about#story" },
+      { label: "The Community", href: "/about#culture" },
+      { label: "Safety Code", href: "/about#protocols" },
     ],
   },
   {
     title: "CONNECT",
     items: [
-      { label: "Contact Us", href: "mailto:contact@nagpurenfieldriders.com" },
-      { label: "Join The Ride", href: "#connect" },
-      { label: "Rider Inquiries", href: "mailto:contact@nagpurenfieldriders.com" },
-      { label: "Zero Mile Base", href: "#destinations" },
+      { label: "Contact Us", href: "/contact" },
+      { label: "Join The Ride", href: "/contact" },
+      { label: "Zero Mile Base", href: "/about#story" },
     ],
   },
   {
@@ -182,7 +179,7 @@ export const FOOTER_NAV_COLUMNS: FooterNavColumn[] = [
     items: [
       { label: "Privacy Policy", href: "#" },
       { label: "Terms & Conditions", href: "#" },
-      { label: "Community Guidelines", href: "#creed" },
+      { label: "Community Guidelines", href: "/about#protocols" },
     ],
   },
 ];

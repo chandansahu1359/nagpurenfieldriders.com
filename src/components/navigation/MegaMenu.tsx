@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   MEGA_MENU_CATEGORIES,
   MEGA_MENU_FEATURED,
@@ -18,6 +19,19 @@ interface MegaMenuProps {
 export const MegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+
+  const isLinkActive = (href: string) => {
+    if (!pathname) return false;
+    if (href === "/") {
+      return pathname === "/";
+    }
+    const cleanHref = href.split("#")[0];
+    if (cleanHref === "/") {
+      return pathname === "/";
+    }
+    return pathname === cleanHref || pathname.startsWith(cleanHref + "/");
+  };
 
   useEffect(() => {
     if (!isOpen || !containerRef.current || !contentRef.current) return;
@@ -139,13 +153,13 @@ export const MegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
               </div>
 
               <div className="pt-4 border-t border-zinc-800">
-                <a
+                <Link
                   href={MEGA_MENU_FEATURED.ctaHref}
                   onClick={onClose}
                   className="inline-flex items-center gap-1 text-xs font-mono font-bold uppercase tracking-wider text-amber-400 hover:text-amber-300 transition-colors"
                 >
                   <span>{MEGA_MENU_FEATURED.ctaLabel}</span>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -161,31 +175,68 @@ export const MegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                 </div>
 
                 <ul className="flex flex-col gap-3.5">
-                  {category.items.map((item) => (
-                    <li key={item.label} className="group/item">
-                      <a
-                        href={item.href}
-                        target={item.isExternal ? "_blank" : undefined}
-                        rel={item.isExternal ? "noopener noreferrer" : undefined}
-                        onClick={onClose}
-                        className="flex flex-col gap-0.5"
-                      >
-                        <span className="text-sm font-semibold tracking-wide text-zinc-200 group-hover/item:text-amber-400 transition-colors flex items-center justify-between">
-                          <span>{item.label}</span>
-                          {item.isExternal ? (
-                            <ArrowUpRight className="w-3 h-3 text-zinc-500 group-hover/item:text-amber-400 transition-colors" />
-                          ) : (
-                            <span className="text-zinc-600 text-xs opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-0.5 transition-all">
-                              →
+                  {category.items.map((item) => {
+                    const isActive = !item.isExternal && isLinkActive(item.href);
+                    return (
+                      <li key={item.label} className="group/item">
+                        {item.isExternal ? (
+                          <a
+                            href={item.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={onClose}
+                            className="flex flex-col gap-0.5"
+                          >
+                            <span className="text-sm font-semibold tracking-wide text-zinc-200 group-hover/item:text-amber-400 transition-colors flex items-center justify-between">
+                              <span>{item.label}</span>
+                              <ArrowUpRight className="w-3 h-3 text-zinc-500 group-hover/item:text-amber-400 transition-colors" />
                             </span>
-                          )}
-                        </span>
-                        <span className="text-[11px] text-zinc-500 group-hover/item:text-zinc-400 leading-tight transition-colors">
-                          {item.description}
-                        </span>
-                      </a>
-                    </li>
-                  ))}
+                            <span className="text-[11px] text-zinc-500 group-hover/item:text-zinc-400 leading-tight transition-colors">
+                              {item.description}
+                            </span>
+                          </a>
+                        ) : (
+                          <Link
+                            href={item.href}
+                            onClick={onClose}
+                            aria-current={isActive ? "page" : undefined}
+                            className={`flex flex-col gap-0.5 p-1 rounded-lg transition-colors ${
+                              isActive
+                                ? "bg-amber-500/10 border-l-2 border-amber-500 pl-2"
+                                : ""
+                            }`}
+                          >
+                            <span
+                              className={`text-sm font-semibold tracking-wide transition-colors flex items-center justify-between ${
+                                isActive
+                                  ? "text-amber-400 font-bold"
+                                  : "text-zinc-200 group-hover/item:text-amber-400"
+                              }`}
+                            >
+                              <span className="flex items-center gap-1.5">
+                                <span>{item.label}</span>
+                                {isActive && (
+                                  <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+                                )}
+                              </span>
+                              <span
+                                className={`text-xs transition-all ${
+                                  isActive
+                                    ? "text-amber-400 opacity-100"
+                                    : "text-zinc-600 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-0.5"
+                                }`}
+                              >
+                                →
+                              </span>
+                            </span>
+                            <span className="text-[11px] text-zinc-500 group-hover/item:text-zinc-400 leading-tight transition-colors">
+                              {item.description}
+                            </span>
+                          </Link>
+                        )}
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             ))}
