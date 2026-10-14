@@ -40,7 +40,6 @@ export const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
         const isActive = isLinkActive(link.href);
         const isSamePageScroll = link.href.startsWith("#");
         const linkProps = {
-          key: link.label,
           href: link.href,
           "aria-current": isActive ? ("page" as const) : undefined,
           className: `text-xs font-mono uppercase tracking-wider py-1 relative group focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-amber-500 rounded transition-colors ${
@@ -62,9 +61,13 @@ export const DesktopNavigation: React.FC<DesktopNavigationProps> = ({
         );
 
         return isSamePageScroll ? (
-          <Link {...linkProps}>{linkChildren}</Link>
+          <Link key={link.label} {...linkProps}>
+            {linkChildren}
+          </Link>
         ) : (
-          <a {...linkProps}>{linkChildren}</a>
+          <a key={link.label} {...linkProps}>
+            {linkChildren}
+          </a>
         );
       })}
 

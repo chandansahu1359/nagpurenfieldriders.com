@@ -13,8 +13,15 @@ export const FooterNavigation: React.FC = () => {
         {/* Brand & Origin Column (4 cols) */}
         <div className="lg:col-span-4 flex flex-col justify-between gap-6">
           <div className="flex flex-col gap-4">
-            <a href="/" className="flex items-center gap-3.5 group w-fit">
-              <div className="relative w-16 h-16 shrink-0 flex items-center justify-center group-hover:scale-105 transition-transform">
+            <div className="flex items-center gap-3.5 w-fit">
+              <a
+                href="/ner-logo.png"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative w-16 h-16 shrink-0 flex items-center justify-center hover:scale-105 transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded-lg"
+                title="Open Nagpur Enfield Riders Logo in new tab"
+                aria-label="Open Nagpur Enfield Riders Logo in new tab"
+              >
                 <Image
                   src="/ner-logo.png"
                   alt="Nagpur Enfield Riders Official Logo"
@@ -22,17 +29,21 @@ export const FooterNavigation: React.FC = () => {
                   height={64}
                   className="object-contain w-auto h-16 drop-shadow-xl"
                 />
-              </div>
+              </a>
 
-              <div className="flex flex-col">
+              <a
+                href="/"
+                className="flex flex-col group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded-lg"
+                aria-label="Nagpur Enfield Riders Home"
+              >
                 <span className="text-xl font-black text-white tracking-wider uppercase group-hover:text-amber-400 transition-colors">
                   {SITE_CONFIG.name}
                 </span>
                 <span className="text-xs font-mono text-zinc-400 font-bold tracking-widest uppercase">
                   NAGPUR • INDIA
                 </span>
-              </div>
-            </a>
+              </a>
+            </div>
 
             <p className="text-sm text-zinc-400 leading-relaxed max-w-sm">
               Headquartered at India&apos;s Zero Mile Stone in Nagpur. A self-governed

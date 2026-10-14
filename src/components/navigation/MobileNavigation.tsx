@@ -104,13 +104,15 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({
     >
       {/* Top Header Bar */}
       <div className="flex items-center justify-between pb-6 border-b border-zinc-800/80">
-        <a
-          href="/"
-          onClick={onClose}
-          className="flex items-center gap-3"
-          aria-label="Nagpur Enfield Riders Home"
-        >
-          <div className="relative w-12 h-12 shrink-0">
+        <div className="flex items-center gap-3">
+          <a
+            href="/ner-logo.png"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative w-12 h-12 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded-lg"
+            title="Open Nagpur Enfield Riders Logo in new tab"
+            aria-label="Open Nagpur Enfield Riders Logo in new tab"
+          >
             <Image
               src="/ner-logo.png"
               alt="Nagpur Enfield Riders Official Logo"
@@ -119,16 +121,21 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({
               className="object-contain w-auto h-12"
               priority
             />
-          </div>
-          <div className="flex flex-col">
-            <span className="text-base font-black tracking-wider text-white uppercase">
+          </a>
+          <a
+            href="/"
+            onClick={onClose}
+            className="flex flex-col group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded-lg"
+            aria-label="Nagpur Enfield Riders Home"
+          >
+            <span className="text-base font-black tracking-wider text-white uppercase group-hover:text-amber-400 transition-colors">
               {SITE_CONFIG.shortName}
             </span>
             <span className="text-[10px] uppercase font-mono tracking-widest text-zinc-400">
               Zero Mile Origin
             </span>
-          </div>
-        </a>
+          </a>
+        </div>
 
         <button
           onClick={onClose}
@@ -214,7 +221,6 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({
                 const isActive = isLinkActive(item.href);
                 const isSamePageScroll = item.href.startsWith("#");
                 const itemProps = {
-                  key: item.label,
                   href: item.href,
                   onClick: onClose,
                   "aria-current": isActive ? ("page" as const) : undefined,
@@ -235,9 +241,13 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({
                 );
 
                 return isSamePageScroll ? (
-                  <Link {...itemProps}>{itemChildren}</Link>
+                  <Link key={item.label} {...itemProps}>
+                    {itemChildren}
+                  </Link>
                 ) : (
-                  <a {...itemProps}>{itemChildren}</a>
+                  <a key={item.label} {...itemProps}>
+                    {itemChildren}
+                  </a>
                 );
               })}
             </div>

@@ -57,13 +57,15 @@ export const Header: React.FC = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Brand Identity / Logo */}
-          <a
-            href="/"
-            className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded-lg py-1"
-            aria-label="Nagpur Enfield Riders Home"
-            onClick={() => setIsMegaMenuOpen(false)}
-          >
-            <div className="relative w-12 h-12 shrink-0 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+          <div className="flex items-center gap-3 py-1">
+            <a
+              href="/ner-logo.png"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative w-12 h-12 shrink-0 flex items-center justify-center hover:scale-105 transition-transform duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded-lg"
+              title="Open Nagpur Enfield Riders Logo in new tab"
+              aria-label="Open Nagpur Enfield Riders Logo in new tab"
+            >
               <Image
                 src="/ner-logo.png"
                 alt="Nagpur Enfield Riders Official Logo"
@@ -72,9 +74,14 @@ export const Header: React.FC = () => {
                 className="object-contain w-auto h-12 drop-shadow-md"
                 priority
               />
-            </div>
+            </a>
 
-            <div className="flex flex-col">
+            <a
+              href="/"
+              className="flex flex-col group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded-lg"
+              aria-label="Nagpur Enfield Riders Home"
+              onClick={() => setIsMegaMenuOpen(false)}
+            >
               <p className="text-base sm:text-lg font-black tracking-wider text-white uppercase group-hover:text-amber-400 transition-colors flex items-center gap-1.5">
                 <span>{SITE_CONFIG.name}</span>
                 {/* <span className="w-1.5 h-1.5 rounded-full bg-amber-500 inline-block animate-pulse" />
@@ -89,8 +96,8 @@ export const Header: React.FC = () => {
                   NAGPUR
                 </span>
               </p>
-            </div>
-          </a>
+            </a>
+          </div>
 
           {/* Desktop Navigation */}
           <DesktopNavigation
