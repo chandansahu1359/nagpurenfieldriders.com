@@ -71,20 +71,15 @@ export const MEGA_MENU_CATEGORIES: Record<string, MegaMenuCategory> = {
         description: "Annual gatherings, foundation runs & milestone expeditions.",
       },
       {
-        label: "Safety Protocol",
-        href: "/about/#protocols",
-        description: "Strict staggered formation, protective gear & document rules.",
+        label: "Gallery",
+        href: "/gallery/",
+        description: "Visual chronicles of bikes, passes, and asphalt ribbons.",
       },
     ],
   },
   explore: {
     title: "EXPLORE",
     items: [
-      {
-        label: "Gallery",
-        href: "/gallery/",
-        description: "Visual chronicles of bikes, passes, and asphalt ribbons.",
-      },
       {
         label: "Destinations Radar",
         href: "/#destinations",

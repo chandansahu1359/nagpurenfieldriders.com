@@ -50,11 +50,10 @@ export const Header: React.FC = () => {
     <>
       <header
         ref={headerRef}
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          isScrolled || isMegaMenuOpen
-            ? "bg-black border-b border-zinc-800 shadow-2xl shadow-black/90 py-3"
-            : "bg-gradient-to-b from-black/85 via-black/40 to-transparent border-b border-transparent py-4 sm:py-5"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${isScrolled || isMegaMenuOpen
+          ? "bg-black border-b border-zinc-800 shadow-2xl shadow-black/90 py-3"
+          : "bg-gradient-to-b from-black/85 via-black/40 to-transparent border-b border-transparent py-4 sm:py-5"
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Brand Identity / Logo */}
@@ -76,16 +75,20 @@ export const Header: React.FC = () => {
             </div>
 
             <div className="flex flex-col">
-              <span className="text-base sm:text-lg font-black tracking-wider text-white uppercase group-hover:text-amber-400 transition-colors flex items-center gap-1.5">
-                <span>{SITE_CONFIG.shortName}</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-amber-500 inline-block animate-pulse" />
+              <p className="text-base sm:text-lg font-black tracking-wider text-white uppercase group-hover:text-amber-400 transition-colors flex items-center gap-1.5">
+                <span>{SITE_CONFIG.name}</span>
+                {/* <span className="w-1.5 h-1.5 rounded-full bg-amber-500 inline-block animate-pulse" />
                 <span className="hidden sm:inline-block text-xs font-mono text-zinc-400 font-semibold tracking-widest pl-1 border-l border-zinc-700">
                   NAGPUR
+                </span> */}
+              </p>
+              <p className="text-[10px] uppercase font-mono tracking-widest text-zinc-400">
+                <span className="pr-1">Zero Mile Origin</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-500 inline-block animate-pulse" />
+                <span className="hidden sm:inline-block text-xs font-mono text-zinc-400 font-semibold tracking-widest pl-1">
+                  NAGPUR
                 </span>
-              </span>
-              <span className="text-[10px] uppercase font-mono tracking-widest text-zinc-400">
-                Zero Mile Origin
-              </span>
+              </p>
             </div>
           </a>
 
