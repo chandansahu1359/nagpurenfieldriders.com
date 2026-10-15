@@ -1,14 +1,8 @@
 import { ENV } from "@/config";
-import { SITE_CONFIG } from "@/constants/site";
+import { ContactChannel } from "@/types";
+import { CONTACT_FAQS_LIST } from "./contactFaq.data";
 
-export interface ContactChannel {
-  id: string;
-  label: string;
-  value: string;
-  href?: string;
-  isExternal?: boolean;
-  subtext: string;
-}
+export type { ContactChannel };
 
 export const CONTACT_CHANNELS: ContactChannel[] = [
   {
@@ -34,20 +28,5 @@ export const CONTACT_CHANNELS: ContactChannel[] = [
   },
 ];
 
-export const CONTACT_FAQS = [
-  {
-    question: "Do I need a Royal Enfield motorcycle to ride with NER?",
-    answer:
-      "Yes. While we respect all motorcycle brands, NER's organized rides and brotherhood formations are centered around Royal Enfield motorcycles.",
-  },
-  {
-    question: "Is there any membership fee to join NER rides?",
-    answer:
-      "No. NER is a self-governed fraternity. We do not charge membership fees. Individual fuel, food, and accommodation costs are self-funded.",
-  },
-  {
-    question: "What gear is mandatory before rolling out?",
-    answer:
-      "Full-face helmet (ECE/DOT/ISI), armored riding jacket, knee guards, sturdy boots, and valid bike documentation (DL, RC, Insurance, PUC). No gear = no ride.",
-  },
-];
+// Single source of truth re-export
+export { CONTACT_FAQS_LIST, CONTACT_FAQS_LIST as CONTACT_FAQS };

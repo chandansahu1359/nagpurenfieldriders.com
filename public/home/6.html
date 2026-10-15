@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="web_standard" name="shell-type" />
+    <title>Nagpur Enfield Riders • Central India Touring Guild</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        @layer base {
+
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                overscroll-behavior: none;
+            }
+
+            main> :first-child {
+                margin-top: 0 !important;
+            }
+
+            main> :last-child {
+                margin-bottom: 0 !important;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#F67922",
+                        "primary-dark": "#D85C16",
+                        "primary-container": "#F67922",
+                        "on-primary": "#FFFFFF",
+                        "charcoal": "#242521",
+                        "on-surface": "#242521",
+                        "muted-grey": "#73736D",
+                        "outline": "#8B7265",
+                        "border-subtle": "#E6E0D7",
+                        "warm-ivory": "#FAF7F1",
+                        "surface": "#FAF7F1",
+                        "surface-pure": "#FFFFFF",
+                        "forest-deep": "#354F40",
+                        "forest-soft": "#EBF1ED",
+                        "terracotta-soft": "#F8EDE8"
+                    },
+                    fontFamily: {
+                        sans: ["Manrope", "sans-serif"],
+                        display: ["Manrope", "sans-serif"],
+                        editorial: ["Manrope", "sans-serif"]
+                    }
+                }
+            }
+        };
+    </script>
+</head>
+
+<body class="bg-warm-ivory font-sans text-charcoal antialiased selection:bg-[#F67922]/20 selection:text-[#D85C16]">
+    <!-- 1. HEADER & NAVIGATION -->
+    <header
+        class="fixed top-0 w-full z-50 bg-warm-ivory/95 backdrop-blur-md border-b border-border-subtle shadow-[0_1px_8px_rgba(0,0,0,0.02)] transition-all">
+        <div class="h-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+            <!-- Left: Brand Typographic Mark -->
+            <a class="flex items-center gap-3 group" href="#">
+                <img alt="NER Brand Logo" class="h-16 w-auto object-contain" src="/ner-logo.png" />
+                <div class="flex flex-col">
+                    <span class="font-extrabold text-sm uppercase tracking-[0.16em] text-charcoal leading-tight">Nagpur
+                        Enfield Riders</span>
+                    <span class="text-[11px] font-medium tracking-[0.12em] text-muted-grey uppercase">Central India •
+                        Est. 2024</span>
+                </div>
+            </a>
+            <!-- Center: Nav links -->
+            <nav class="hidden lg:flex items-center gap-8 font-semibold text-sm">
+                <a class="text-[#F67922] font-bold transition-colors" href="#hero">Home</a>
+                <a class="text-charcoal/80 hover:text-[#F67922] transition-colors" href="#about">About</a>
+                <a class="text-charcoal/80 hover:text-[#F67922] transition-colors" href="#rides">Rides</a>
+                <a class="text-charcoal/80 hover:text-[#F67922] transition-colors" href="#riders">Riders / Teams</a>
+                <a class="text-charcoal/80 hover:text-[#F67922] transition-colors" href="#collection">Shop</a>
+                <a class="text-charcoal/80 hover:text-[#F67922] transition-colors" href="#stories">Stories</a>
+            </nav>
+            <!-- Right: Action CTA & Shopping Bag -->
+            <div class="flex items-center gap-4">
+                <a class="relative p-2 text-charcoal hover:text-[#F67922] transition-colors flex items-center justify-center"
+                    href="#collection">
+                    <span class="material-symbols-outlined text-[23px]">shopping_bag</span>
+                    <span
+                        class="absolute 1 top-1 right-1 w-4 h-4 bg-[#F67922] text-white font-bold text-[9px] flex items-center justify-center rounded-full">2</span>
+                </a>
+                <a class="inline-flex items-center justify-center gap-2 bg-[#F67922] hover:bg-[#D85C16] text-white font-bold text-sm px-5 py-2.5 rounded-full shadow-sm hover:shadow transition-all duration-200"
+                    href="#upcoming">
+                    <span>Join NER</span>
+                    <span class="material-symbols-outlined text-[17px]">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <main class="w-full pt-20 bg-warm-ivory min-h-screen">
+        <!-- 2. EDITORIAL HERO -->
+        <section class="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20 overflow-hidden"
+            id="hero">
+            <!-- Ambient Glow and Sculptural Ring Graphic -->
+            <div
+                class="absolute -top-10 right-10 w-96 h-96 rounded-full bg-[#F67922]/10 blur-3xl pointer-events-none -z-10">
+            </div>
+            <div
+                class="absolute bottom-10 left-10 w-72 h-72 rounded-full bg-[#F8EDE8] blur-2xl pointer-events-none -z-10">
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+                <!-- Left: Editorial Headline & Story Intent -->
+                <div class="lg:col-span-5 flex flex-col justify-center z-10">
+                    <div
+                        class="inline-flex items-center gap-2 self-start px-3.5 py-1 bg-surface-pure border border-border-subtle rounded-full shadow-sm mb-6 text-charcoal text-xs font-bold tracking-[0.18em] uppercase">
+                        <span class="w-2 h-2 rounded-full bg-[#F67922] animate-pulse"></span>
+                        <span>21.1458° N, 79.0882° E • Zero Mile HQ</span>
+                    </div>
+                    <h1
+                        class="text-4xl sm:text-5xl lg:text-[54px] font-extrabold text-charcoal tracking-tight leading-[1.08] mb-5">
+                        More Than Miles.<br />
+                        <span class="italic font-light text-[#F67922]">A Way of Life.</span>
+                    </h1>
+                    <p class="text-lg text-charcoal/80 font-normal max-w-md leading-relaxed mb-8">
+                        Good roads. Better people. Stories worth carrying home across the teak corridors and mountain
+                        passes of peninsular India.
+                    </p>
+                    <div class="flex flex-wrap items-center gap-4 mb-10">
+                        <a class="inline-flex items-center gap-2 px-7 py-3 bg-[#F67922] hover:bg-[#D85C16] text-white font-bold text-sm rounded-full shadow-md hover:shadow-lg transition-all duration-200 group"
+                            href="#rides">
+                            <span>Explore Rides</span>
+                            <span
+                                class="material-symbols-outlined text-[18px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+                        </a>
+                        <a class="inline-flex items-center gap-2 px-6 py-3 bg-surface-pure hover:bg-white text-charcoal font-bold text-sm rounded-full border border-border-subtle hover:border-[#F67922] transition-colors shadow-sm"
+                            href="#about">
+                            <span>Discover NER</span>
+                            <span class="material-symbols-outlined text-[16px] text-[#F67922]">north_east</span>
+                        </a>
+                    </div>
+                    <!-- Zero Mile Ledger Mini-Strip -->
+                    <div
+                        class="grid grid-cols-3 gap-4 pt-4 border-t border-border-subtle bg-surface-pure/80 backdrop-blur-sm p-4 rounded-xl shadow-sm">
+                        <div>
+                            <span class="block text-[11px] font-bold text-muted-grey uppercase tracking-wider">Zero
+                                Mile</span>
+                            <span class="text-xl font-extrabold text-charcoal">Nagpur</span>
+                        </div>
+                        <div>
+                            <span class="block text-[11px] font-bold text-muted-grey uppercase tracking-wider">Active
+                                Riders</span>
+                            <span class="text-xl font-extrabold text-[#F67922]">1,420+</span>
+                        </div>
+                        <div>
+                            <span class="block text-[11px] font-bold text-muted-grey uppercase tracking-wider">Paved
+                                &amp; Forest</span>
+                            <span class="text-xl font-extrabold text-charcoal">68,000 km</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right: Asymmetric Mosaic + 3D Orange Sculptural Ribbon -->
+                <div class="lg:col-span-7 relative">
+                    <!-- Orange Sculptural 3D Accent Ring / Curve -->
+                    <svg class="absolute -top-6 -right-6 w-44 h-44 text-[#F67922] opacity-80 pointer-events-none z-20"
+                        fill="none" viewbox="0 0 160 160">
+                        <circle cx="80" cy="80" r="70" stroke="currentColor" stroke-dasharray="16 8"
+                            stroke-linecap="round" stroke-width="6"></circle>
+                        <path d="M40 120 C 60 70, 100 90, 130 40" stroke="#D85C16" stroke-linecap="round"
+                            stroke-width="4"></path>
+                    </svg>
+                    <div class="grid grid-cols-12 gap-4 items-center">
+                        <!-- Dominant Lifestyle Photograph -->
+                        <div class="col-span-8 relative">
+                            <div class="relative overflow-hidden rounded-2xl shadow-xl aspect-[4/5] bg-neutral-200">
+                                <img alt="Riders at sunrise in Satpura" class="w-full h-full object-cover"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVY8FrJF3zuKKMRiptC_N-nxegwQJNW1288uZFBz9D6TO1jAT9aA8ydjNDUIVIi-8S_hSAvV2zhakij5MCLQ0xZjfFpIqOduyIkTqKc_J6Xr4XTH9-wVNH2Km7spjPxijbS5POxdG1kjHvvulhCpoRA8K-MgTPgEIbczWGcoUXB7c2_M9Qx1k8g9KHaky2RCh9jxnfjNmpFMDUu5TFZXFXBIg7Vqddv5CowE2zh2S4Gzxa-_vq70snSA" />
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-transparent to-transparent">
+                                </div>
+                                <div class="absolute bottom-5 left-5 right-5 text-white">
+                                    <span
+                                        class="inline-block px-2.5 py-0.5 rounded bg-[#F67922] text-[10px] font-bold tracking-[0.2em] uppercase mb-1">Dispatch
+                                        01</span>
+                                    <p class="font-bold text-lg leading-snug">Satpura Ghats • Daybreak on the MH-MP
+                                        Highway</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Supporting Layered Photos -->
+                        <div class="col-span-4 flex flex-col gap-4">
+                            <div
+                                class="relative overflow-hidden rounded-xl shadow-md aspect-square bg-neutral-100 group">
+                                <img alt="Leather gloves and journal on tank"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiFOf8gE5yqlYh7Sy_UCp0JpvQEwlkFMF_P4vjiCYMqPSFYubEWGmqAom7rP6eVoYblFcMnxstYQGA57VIS4F5Pta-9fgDZiXkjGl8tdEzEi7UTtHVNYTWBJ5Tz-PJ_kiG4_0ZJUnC53rRffxgDCGMbzodU9feY76efrIydxcUWNU-tIjdsh5SB46Yv12yVmvVibwKR5GkA4pLuwF9w7ReHrxeLduuoduGPMQbZvK5oNI9W7VR1i8DZw" />
+                                <span
+                                    class="absolute top-2 right-2 bg-surface-pure/90 text-charcoal px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">Log
+                                    04</span>
+                            </div>
+                            <div
+                                class="relative overflow-hidden rounded-xl shadow-md aspect-[4/5] bg-neutral-100 group">
+                                <img alt="Laughing riders over chai"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRz8cpytmVZpy2lw8sgacK4qXjyUCNELFgUm8xt4nj-RnjG5JhwkguxfpHH-5-Flafh_iAZuWUTBSHN3Znbgk1GO-T-HMnTzdbn18dVwsoKYHU_Buo-iTz6GOUA_7jsaeo3b62al-RLugmNX5q5Kj2TtMYPkC1d7Wjwef6AVN8eyHlHozR9XfO5Hzff8a3m8LUETG1NA9aiVvdvyFdVLsMyevl6qXOvzNBmZplPnj72T2pwroQY-YnNg" />
+                                <div
+                                    class="absolute bottom-2 left-2 right-2 bg-black/60 backdrop-blur-sm p-2 rounded text-white text-[11px] font-semibold text-center">
+                                    Highway Dhaba • Chhindwara
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Bottom floating verification pill -->
+                    <div
+                        class="absolute -bottom-4 right-6 bg-surface-pure border border-border-subtle p-3 rounded-2xl shadow-lg flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-[#F67922] text-white flex items-center justify-center">
+                            <span class="material-symbols-outlined text-[18px]">verified</span>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-charcoal">Central India Touring Guild</p>
+                            <p class="text-[10px] text-muted-grey">Sanctioned Ride Chapters • Nagpur HQ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 3. MERCHANDISE SHOWCASE ("NER COLLECTION") -->
+        <section class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24" id="collection">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+                <div>
+                    <span class="text-xs font-extrabold uppercase tracking-[0.22em] text-[#F67922] block mb-1">NER
+                        COLLECTION</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-charcoal tracking-tight">Wear the Journey.</h2>
+                    <p class="text-muted-grey text-base mt-2">A little piece of NER, wherever the road takes you.</p>
+                </div>
+                <a class="inline-flex items-center gap-2 text-sm font-bold text-[#F67922] hover:text-[#D85C16] transition-colors group"
+                    href="#">
+                    <span>Shop Collection</span>
+                    <span
+                        class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                </a>
+            </div>
+            <!-- Asymmetrical 1 Large + 3 Curated Right Layout -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+                <!-- 1 Large Featured Product on Left -->
+                <div
+                    class="lg:col-span-5 bg-surface-pure rounded-2xl border border-border-subtle overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col group">
+                    <div
+                        class="relative aspect-[4/4] overflow-hidden bg-neutral-50 p-6 flex items-center justify-center">
+                        <span
+                            class="absolute top-4 left-4 z-10 px-3 py-1 bg-[#F67922] text-white text-[11px] font-bold rounded-full uppercase tracking-wider shadow-sm">
+                            Featured Guild Edition
+                        </span>
+                        <img alt="Highland Fleece Pullover Hoodie"
+                            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXJND5XJWBqB-xarejvFZ__p-o8CEf79rnnO9yhHVKYn4vFUNvweWL3nTTbbv9mj-CTcewF_IEX4KVzJFSziJlEruwPHzaxRSjBUJ58HEupbrZRE6mv3eIThgxg4sAzHCka8YoLT5kNWKaVaeXQoFa1Gk6hoXHWdS5-HMI5e28GBhCvuh5ZryIerGOWn21fneV5iNzI9JzpjDn8ACH52HCAWSgOO79SnyTM8muwLfp-9LYnyllC7JzMQ" />
+                    </div>
+                    <div class="p-6 flex flex-col flex-1 justify-between bg-white">
+                        <div>
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="w-4 h-4 rounded-full bg-[#354F40] ring-2 ring-[#F67922]"
+                                    title="Forest Deep"></span>
+                                <span class="w-4 h-4 rounded-full bg-[#242521] ring-1 ring-border-subtle"
+                                    title="Charcoal"></span>
+                                <span class="text-xs text-muted-grey ml-1 font-medium">2 Colorways</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-charcoal group-hover:text-[#F67922] transition-colors">
+                                Highland Fleece Pullover Hoodie
+                            </h3>
+                            <p class="text-sm text-muted-grey mt-2">Wind-resistant thermal cotton weave with custom
+                                stitched brass-toned NER guild crest.</p>
+                        </div>
+                        <div class="pt-6 border-t border-border-subtle mt-4 flex items-center justify-between">
+                            <div>
+                                <span class="text-xs text-muted-grey block">Member Price</span>
+                                <span class="text-2xl font-extrabold text-charcoal">₹3,400</span>
+                            </div>
+                            <button
+                                class="inline-flex items-center gap-2 bg-[#F67922] hover:bg-[#D85C16] text-white px-5 py-2.5 rounded-full font-bold text-xs uppercase tracking-wider shadow-sm transition-all">
+                                <span class="material-symbols-outlined text-[16px]">add_shopping_cart</span>
+                                <span>Add to Bag</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- 3 Smaller Curated Items on Right -->
+                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <!-- Item 1: The Satpura Trail Heavyweight Tee -->
+                    <div
+                        class="bg-surface-pure rounded-2xl border border-border-subtle overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col group">
+                        <div class="relative aspect-square bg-neutral-50 overflow-hidden">
+                            <span
+                                class="absolute top-3 left-3 bg-[#FAF7F1] border border-border-subtle text-charcoal px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">Tee</span>
+                            <img alt="Satpura Trail Tee"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIUCIMA03XexK3VXe3CYGQ7hIa2bwxFwGrjqGTA7fdnfSGJyDOVSbitt2aa3B6332ptswFNx1KdwXPaDGBwYBnBz3D0WEVYMgR6vUNLl95Pb9d3JUMAGdMeTVavHlUBgvSOd99IR4C1XhJQgeSDHB_3ieXKV1A5SiIwB2mQaC23muHTU0UkB_6GXoAtVyj7mUz2khayv6F4GYmyzarcdnQjyqGU4OCVHw7aRbb45V3ea9edG176VRNPw" />
+                        </div>
+                        <div class="p-4 flex flex-col flex-1 justify-between">
+                            <div>
+                                <div class="flex items-center gap-1.5 mb-2">
+                                    <span class="w-3 h-3 rounded-full bg-[#4A5D4E]"></span>
+                                    <span class="w-3 h-3 rounded-full bg-[#FAF7F1] border border-neutral-300"></span>
+                                </div>
+                                <h4
+                                    class="font-bold text-sm text-charcoal group-hover:text-[#F67922] transition-colors leading-snug">
+                                    The Satpura Trail Heavyweight Tee</h4>
+                                <p class="text-[12px] text-muted-grey mt-1">260 GSM combed cotton.</p>
+                            </div>
+                            <div class="mt-4 pt-3 border-t border-border-subtle flex items-center justify-between">
+                                <span class="font-extrabold text-base text-charcoal">₹1,850</span>
+                                <span class="text-[11px] font-bold text-[#F67922]">Buy</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Item 2: Waxed Canvas Route Duffle -->
+                    <div
+                        class="bg-surface-pure rounded-2xl border border-border-subtle overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col group">
+                        <div class="relative aspect-square bg-neutral-50 overflow-hidden">
+                            <span
+                                class="absolute top-3 left-3 bg-[#FAF7F1] border border-border-subtle text-charcoal px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">Gear</span>
+                            <img alt="Waxed Canvas Route Duffle"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkWGZcR97SxpsRoLD5O0XtGOYLdEoJ8YZZ1CscznoioJ8xe_hhpVCJ98GGowZ0IbkSY_MOwvddwSzyY5dQJlI1sEvl8_u2PQ8T7jo41mQO6i5h3K5oooncmJOkejfplD3CeICGrztp-FBkOTsDibXnuN0vNhWKerzkY0nbhddnxWjN6e15f2XJxLLkQ7wXqkZDrG5SjmFqTpEIZqng7fFHGpxx8UYxkfI32LH20ryr2vV8pDKgwbUkMw" />
+                        </div>
+                        <div class="p-4 flex flex-col flex-1 justify-between">
+                            <div>
+                                <div class="flex items-center gap-1.5 mb-2">
+                                    <span class="w-3 h-3 rounded-full bg-[#C2A379]"></span>
+                                    <span class="w-3 h-3 rounded-full bg-[#354F40]"></span>
+                                </div>
+                                <h4
+                                    class="font-bold text-sm text-charcoal group-hover:text-[#F67922] transition-colors leading-snug">
+                                    Waxed Canvas Route Duffle</h4>
+                                <p class="text-[12px] text-muted-grey mt-1">18oz waterproof sailcloth.</p>
+                            </div>
+                            <div class="mt-4 pt-3 border-t border-border-subtle flex items-center justify-between">
+                                <span class="font-extrabold text-base text-charcoal">₹4,200</span>
+                                <span class="text-[11px] font-bold text-[#F67922]">Buy</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Item 3: Explorer 6-Panel Field Cap -->
+                    <div
+                        class="bg-surface-pure rounded-2xl border border-border-subtle overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col group">
+                        <div class="relative aspect-square bg-neutral-50 overflow-hidden">
+                            <span
+                                class="absolute top-3 left-3 bg-[#FAF7F1] border border-border-subtle text-charcoal px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">Accessory</span>
+                            <img alt="Explorer Cap"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDn5DsrsvKwzaj7Glao0Ck38LPAOJ4Mn8EKMVCgWzzFiEF5fyh1TjrJzr8vnoMs--jvKyl-rRncizDTWZo_5JAsItwHMJ1tGClZR054DFARSomeN1rhUSU5B6X58IpN8ZQEAlb7Ai-iIKlGL1A8irisEd1JSU2KqFBL8I-reT7dcAYsbBIe8KIFzuk_Dhs7r_z1uOja6H2nBQRtqra8XhQWyeUp8Oy_PMTRONL3Ag5Ene9a2BB3HMW7dQ" />
+                        </div>
+                        <div class="p-4 flex flex-col flex-1 justify-between">
+                            <div>
+                                <div class="flex items-center gap-1.5 mb-2">
+                                    <span class="w-3 h-3 rounded-full bg-[#3B3D3B]"></span>
+                                    <span class="w-3 h-3 rounded-full bg-[#D5CBB9]"></span>
+                                </div>
+                                <h4
+                                    class="font-bold text-sm text-charcoal group-hover:text-[#F67922] transition-colors leading-snug">
+                                    Explorer 6-Panel Field Cap</h4>
+                                <p class="text-[12px] text-muted-grey mt-1">Washed twill &amp; brass slider.</p>
+                            </div>
+                            <div class="mt-4 pt-3 border-t border-border-subtle flex items-center justify-between">
+                                <span class="font-extrabold text-base text-charcoal">₹1,200</span>
+                                <span class="text-[11px] font-bold text-[#F67922]">Buy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 4. FEATURED RIDES (EXACTLY 3 VISUALLY DISTINCT JOURNEYS) -->
+        <section class="w-full bg-white border-y border-border-subtle py-16 lg:py-24" id="rides">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+                    <div>
+                        <span class="text-xs font-extrabold uppercase tracking-[0.22em] text-[#F67922] block mb-1">THE
+                            ROAD AWAITS</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-charcoal tracking-tight">Some Roads Stay
+                            With You.</h2>
+                        <p class="text-muted-grey text-base mt-2">Three scouted journeys crafted with lead sweepers,
+                            fuel buffers, and curated camps.</p>
+                    </div>
+                    <a class="inline-flex items-center gap-2 text-sm font-bold text-[#F67922] hover:text-[#D85C16] transition-colors group"
+                        href="#">
+                        <span>All Rides &amp; Expeditions</span>
+                        <span
+                            class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </a>
+                </div>
+                <!-- 1 Large Panorama + 2 Distinct Companion Panels -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                    <!-- Large Featured Panorama: Pachmarhi Odyssey -->
+                    <div
+                        class="lg:col-span-7 bg-surface-pure rounded-2xl border border-border-subtle overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col group">
+                        <div class="relative aspect-[16/10] overflow-hidden bg-neutral-200">
+                            <img alt="Satpura &amp; Pachmarhi"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4oLSK8F2fJIRYhBNmvw2Ad80GT3PQiwn6M3P609Skfm4_xlTI_pBqAu4YOloBiZybx11WS5JxvUHDCaEyR3LXy1vL7CA56FL0Om0Wds-YZtst4wPCs4_iS3XV-GsagZ-xgA0itzYS1yTjeVNRITkjqiZPG70B6fESII-xQ4Y1ZRLMKnA8ryUo7muyye4oIXouAO0n46x9jQXZtryr28vk3EuzVWjNsDbWj3yU8UeixMg2dJWIzX1VpQ" />
+                            <div class="absolute top-4 left-4 flex gap-2">
+                                <span
+                                    class="bg-[#F67922] text-white px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider shadow">
+                                    Featured Odyssey
+                                </span>
+                                <span
+                                    class="bg-charcoal/80 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs font-semibold">
+                                    540 km • 3 Days
+                                </span>
+                            </div>
+                            <div
+                                class="absolute bottom-4 right-4 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-lg text-charcoal text-xs font-bold shadow flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-[#F67922]"></span>
+                                <span>1,067m Peak Elevation</span>
+                            </div>
+                        </div>
+                        <div class="p-6 sm:p-8 flex flex-col flex-1 justify-between">
+                            <div>
+                                <span class="text-xs font-bold text-[#F67922] tracking-wider uppercase">Nagpur →
+                                    Chhindwara → Pachmarhi</span>
+                                <h3
+                                    class="text-2xl font-bold text-charcoal mt-1 group-hover:text-[#F67922] transition-colors">
+                                    Into the Hills: Satpura &amp; Pachmarhi Odyssey
+                                </h3>
+                                <p class="text-charcoal/80 text-sm leading-relaxed mt-3">
+                                    Winding mountain ghats, pine forests, cold plateau winds, and evening campfire
+                                    camaraderie beneath clear stargazing skies.
+                                </p>
+                                <!-- Orange Route Line Accent -->
+                                <div class="w-full h-1 bg-[#FAF7F1] rounded-full overflow-hidden mt-6 mb-2">
+                                    <div class="h-full bg-[#F67922] w-3/4 rounded-full"></div>
+                                </div>
+                            </div>
+                            <div class="pt-6 border-t border-border-subtle mt-6 flex items-center justify-between">
+                                <span
+                                    class="text-xs font-bold text-[#D85C16] bg-[#F8EDE8] px-3 py-1 rounded-full">Almost
+                                    Full • 3 Slots Left</span>
+                                <a class="inline-flex items-center gap-1 text-sm font-extrabold text-[#F67922] group-hover:translate-x-1 transition-transform"
+                                    href="#">
+                                    <span>Explore Route</span>
+                                    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 2 Stacked Companion Panels on Right -->
+                    <div class="lg:col-span-5 flex flex-col gap-8">
+                        <!-- Ride 2: Pench Border Loop -->
+                        <div
+                            class="bg-surface-pure rounded-2xl border border-border-subtle overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col sm:flex-row group flex-1">
+                            <div class="sm:w-2/5 relative aspect-[4/3] sm:aspect-auto overflow-hidden bg-neutral-200">
+                                <img alt="Pench Border Loop"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuLUCVrSAaSpTWRasd3M9-KVbQ0_Hfye5j3qqqzsaqMnxoSa7SqEDHGI7wiP-lEPXvL2i7C2PS7EHf8sBvgWQBLqoIiMB0SUoKgu8ZOVdevBz3CbQMZd_kuu8j6DKGM6_RSiXeJ-uSfLiPSfaCNdcY4tOZDG2rzdXoXh6ZRbpn9KLmgLYFO2-2k6U_QFLaRpxhEp5bCs56ZpZYZhXuYrY9CsLCtIPadne4BBS-gTY-GBwXKccq6N_l_g" />
+                                <span
+                                    class="absolute top-3 left-3 bg-[#F67922] text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase">180
+                                    km</span>
+                            </div>
+                            <div class="sm:w-3/5 p-5 flex flex-col justify-between">
+                                <div>
+                                    <span class="text-[11px] font-bold text-muted-grey uppercase">Day Break
+                                        Escape</span>
+                                    <h4
+                                        class="text-base font-bold text-charcoal group-hover:text-[#F67922] transition-colors leading-snug mt-0.5">
+                                        The Early Morning Escape: Pench Border Loop
+                                    </h4>
+                                    <p class="text-xs text-muted-grey mt-2 line-clamp-2">Canopy trails, misty teak
+                                        reserves, and hot breakfast along the Madhya Pradesh frontier.</p>
+                                </div>
+                                <div class="pt-3 border-t border-border-subtle mt-3 flex items-center justify-between">
+                                    <span class="text-xs font-semibold text-charcoal">Oct 14 • Day Ride</span>
+                                    <span class="text-xs font-bold text-[#F67922]">Details →</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Ride 3: Tadoba Forest Run -->
+                        <div
+                            class="bg-surface-pure rounded-2xl border border-border-subtle overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col sm:flex-row group flex-1">
+                            <div class="sm:w-2/5 relative aspect-[4/3] sm:aspect-auto overflow-hidden bg-neutral-200">
+                                <img alt="Tadoba Forest Run"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcop_ZgCdIT2H3a0jTE-cwIlN2AC_NsgcWzft-Syt78VjT8idwptYMoze8kR8B0UvAs5nQGkdWF1LqV5zGQ7L_mQmDXp44a3Xq0pHOmFsMypkQjj2Po4vwRr4gnwBdnbM4hyVGvDQVCP9d4cLzrDL3yrE7HIskbSZOElNBWE9L9XW3pSk8-NvJ--n8_S-bX-1DQgIXPoSxLFe3wfLh8cdC_IRdaXvS54p5yZOBSnHSc19XtiwRzGfXhA" />
+                                <span
+                                    class="absolute top-3 left-3 bg-[#F67922] text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase">310
+                                    km</span>
+                            </div>
+                            <div class="sm:w-3/5 p-5 flex flex-col justify-between">
+                                <div>
+                                    <span class="text-[11px] font-bold text-muted-grey uppercase">Overnight
+                                        Circuit</span>
+                                    <h4
+                                        class="text-base font-bold text-charcoal group-hover:text-[#F67922] transition-colors leading-snug mt-0.5">
+                                        Roads Less Travelled: Tadoba Forest Run
+                                    </h4>
+                                    <p class="text-xs text-muted-grey mt-2 line-clamp-2">Quiet irrigation lake tracks,
+                                        red gravel corridors, and the thrills of raw tiger territory.</p>
+                                </div>
+                                <div class="pt-3 border-t border-border-subtle mt-3 flex items-center justify-between">
+                                    <span class="text-xs font-semibold text-charcoal">Dec 08 • Overnight</span>
+                                    <span class="text-xs font-bold text-[#F67922]">Details →</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 5. UPCOMING RIDES (COMPACT EVENT EXPERIENCE) -->
+        <section class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16" id="upcoming">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+                <div>
+                    <span class="text-xs font-extrabold uppercase tracking-[0.22em] text-[#F67922] block mb-1">COMING
+                        UP</span>
+                    <h2 class="text-3xl font-extrabold text-charcoal tracking-tight">Next Stop?</h2>
+                </div>
+                <a class="inline-flex items-center gap-1.5 text-sm font-bold text-[#F67922] hover:text-[#D85C16] transition-colors"
+                    href="#">
+                    <span>All Upcoming Rides</span>
+                    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                </a>
+            </div>
+            <!-- Horizontal Event Timeline with Bold Orange Badges -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Event 1 -->
+                <div
+                    class="bg-surface-pure rounded-2xl border border-border-subtle p-5 hover:border-[#F67922] transition-colors shadow-sm flex flex-col justify-between">
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="bg-[#F67922] text-white p-3 rounded-xl flex flex-col items-center justify-center min-w-[70px] shadow-sm">
+                            <span class="text-[10px] font-black uppercase tracking-wider">OCT</span>
+                            <span class="text-xl font-extrabold leading-none my-0.5">26-28</span>
+                            <span class="text-[9px] font-semibold text-white/80">3 DAYS</span>
+                        </div>
+                        <div>
+                            <span class="text-[11px] font-bold text-[#F67922] uppercase">Satpura Hill Climb</span>
+                            <h4 class="font-bold text-base text-charcoal leading-snug">Chikhaldara Misty Pass Run</h4>
+                            <p class="text-xs text-muted-grey mt-1">Start: Zero Mile • 420 km</p>
+                        </div>
+                    </div>
+                    <div class="mt-5 pt-4 border-t border-border-subtle flex items-center justify-between">
+                        <span class="text-xs text-muted-grey font-medium">Flag-off 05:30 AM</span>
+                        <a class="text-xs font-bold text-[#F67922] hover:underline" href="#">Details &amp; RSVP →</a>
+                    </div>
+                </div>
+                <!-- Event 2 -->
+                <div
+                    class="bg-surface-pure rounded-2xl border border-border-subtle p-5 hover:border-[#F67922] transition-colors shadow-sm flex flex-col justify-between">
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="bg-[#F67922] text-white p-3 rounded-xl flex flex-col items-center justify-center min-w-[70px] shadow-sm">
+                            <span class="text-[10px] font-black uppercase tracking-wider">NOV</span>
+                            <span class="text-xl font-extrabold leading-none my-0.5">15</span>
+                            <span class="text-[9px] font-semibold text-white/80">SATURDAY</span>
+                        </div>
+                        <div>
+                            <span class="text-[11px] font-bold text-[#F67922] uppercase">Breakfast Guild</span>
+                            <h4 class="font-bold text-base text-charcoal leading-snug">Ramtek Ancient Ridge Breakfast
+                            </h4>
+                            <p class="text-xs text-muted-grey mt-1">Start: Civil Lines • 110 km</p>
+                        </div>
+                    </div>
+                    <div class="mt-5 pt-4 border-t border-border-subtle flex items-center justify-between">
+                        <span class="text-xs text-muted-grey font-medium">Flag-off 06:00 AM</span>
+                        <a class="text-xs font-bold text-[#F67922] hover:underline" href="#">Details &amp; RSVP →</a>
+                    </div>
+                </div>
+                <!-- Event 3 -->
+                <div
+                    class="bg-surface-pure rounded-2xl border border-border-subtle p-5 hover:border-[#F67922] transition-colors shadow-sm flex flex-col justify-between">
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="bg-[#F67922] text-white p-3 rounded-xl flex flex-col items-center justify-center min-w-[70px] shadow-sm">
+                            <span class="text-[10px] font-black uppercase tracking-wider">DEC</span>
+                            <span class="text-xl font-extrabold leading-none my-0.5">06</span>
+                            <span class="text-[9px] font-semibold text-white/80">OVERNIGHT</span>
+                        </div>
+                        <div>
+                            <span class="text-[11px] font-bold text-[#F67922] uppercase">Winter Camp</span>
+                            <h4 class="font-bold text-base text-charcoal leading-snug">Totladoh Reservoir Campout</h4>
+                            <p class="text-xs text-muted-grey mt-1">Start: Zero Mile • 190 km</p>
+                        </div>
+                    </div>
+                    <div class="mt-5 pt-4 border-t border-border-subtle flex items-center justify-between">
+                        <span class="text-xs text-muted-grey font-medium">Flag-off 02:00 PM</span>
+                        <a class="text-xs font-bold text-[#F67922] hover:underline" href="#">Details &amp; RSVP →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 6. SIGNATURE INTERACTIVE SECTION: ZERO MILE, NAGPUR -->
+        <section class="w-full bg-[#FAF7F1] border-y border-border-subtle py-16 lg:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="text-xs font-extrabold uppercase tracking-[0.25em] text-[#F67922] block mb-2">ZERO MILE
+                        · NAGPUR</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-charcoal tracking-tight">Every Road Starts Here.
+                    </h2>
+                    <p class="text-muted-grey text-base mt-2">One starting point. Countless destinations. The
+                        geographical heart of India.</p>
+                </div>
+                <!-- Interactive Destination Tabs/Pills -->
+                <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-10" id="zero-mile-tabs">
+                    <button
+                        class="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all bg-[#F67922] text-white shadow-md cursor-pointer"
+                        onclick="switchRoute('ladakh', this)">
+                        Ladakh
+                    </button>
+                    <button
+                        class="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all bg-surface-pure text-charcoal border border-border-subtle hover:border-[#F67922] cursor-pointer"
+                        onclick="switchRoute('goa', this)">
+                        Goa
+                    </button>
+                    <button
+                        class="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all bg-surface-pure text-charcoal border border-border-subtle hover:border-[#F67922] cursor-pointer"
+                        onclick="switchRoute('mumbai', this)">
+                        Mumbai
+                    </button>
+                    <button
+                        class="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all bg-surface-pure text-charcoal border border-border-subtle hover:border-[#F67922] cursor-pointer"
+                        onclick="switchRoute('pune', this)">
+                        Pune
+                    </button>
+                    <button
+                        class="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all bg-surface-pure text-charcoal border border-border-subtle hover:border-[#F67922] cursor-pointer"
+                        onclick="switchRoute('pachmarhi', this)">
+                        Pachmarhi
+                    </button>
+                </div>
+                <!-- Radial Route Hub / Map Detail Container -->
+                <div class="bg-surface-pure rounded-3xl border border-border-subtle p-6 lg:p-10 shadow-lg">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <!-- Left: Stylized Radial Route Graphic -->
+                        <div class="lg:col-span-5 relative flex items-center justify-center py-6">
+                            <div
+                                class="relative w-72 h-72 rounded-full border-2 border-dashed border-[#F67922]/40 flex items-center justify-center animate-[spin_60s_linear_infinite]">
+                                <div class="absolute w-52 h-52 rounded-full border border-border-subtle"></div>
+                                <div class="absolute w-32 h-32 rounded-full border border-[#F67922]/20"></div>
+                            </div>
+                            <!-- Center Glowing Hub -->
+                            <div class="absolute z-10 text-center flex flex-col items-center">
+                                <div
+                                    class="w-16 h-16 rounded-full bg-[#F67922] text-white flex items-center justify-center shadow-lg shadow-[#F67922]/40 ring-4 ring-white animate-bounce">
+                                    <span class="material-symbols-outlined text-[28px]">explore</span>
+                                </div>
+                                <span
+                                    class="mt-2 text-[11px] font-extrabold uppercase tracking-widest text-[#F67922] bg-white px-3 py-0.5 rounded-full shadow-sm border border-border-subtle">
+                                    ZERO MILE NAGPUR
+                                </span>
+                            </div>
+                            <!-- Radial Point Badges -->
+                            <div
+                                class="absolute top-2 text-[10px] font-bold bg-[#FAF7F1] border border-border-subtle px-2 py-0.5 rounded text-charcoal">
+                                North: Ladakh</div>
+                            <div
+                                class="absolute bottom-2 text-[10px] font-bold bg-[#FAF7F1] border border-border-subtle px-2 py-0.5 rounded text-charcoal">
+                                South: Kanyakumari</div>
+                            <div
+                                class="absolute left-0 text-[10px] font-bold bg-[#FAF7F1] border border-border-subtle px-2 py-0.5 rounded text-charcoal">
+                                West: Mumbai</div>
+                            <div
+                                class="absolute right-0 text-[10px] font-bold bg-[#FAF7F1] border border-border-subtle px-2 py-0.5 rounded text-charcoal">
+                                East: Kolkata</div>
+                        </div>
+                        <!-- Right: Live Detail Display -->
+                        <div class="lg:col-span-7 flex flex-col justify-between" id="route-detail-card">
+                            <div>
+                                <span
+                                    class="inline-block px-3 py-1 rounded-full bg-[#F8EDE8] text-[#D85C16] text-xs font-bold tracking-wider uppercase mb-3">
+                                    Trans-India Expedition Corridor
+                                </span>
+                                <h3 class="text-2xl sm:text-3xl font-extrabold text-charcoal leading-tight"
+                                    id="route-title">
+                                    LADAKH — <span class="text-[#F67922]">2,140 KM</span> FROM ZERO MILE, NAGPUR
+                                </h3>
+                                <p class="text-sm font-semibold text-muted-grey mt-1" id="route-meta">
+                                    Est. 6 Days via NH44 • Crosses 5 States • Highest Pass: Khardung La (5,359m)
+                                </p>
+                                <p class="text-sm text-charcoal/80 mt-4 leading-relaxed" id="route-desc">
+                                    The ultimate rite of passage for every Central India rider. Leaving the flat plains
+                                    of Nagpur behind, traversing Madhya Pradesh, Delhi, and Jammu &amp; Kashmir into the
+                                    high barren altitude of Ladakh.
+                                </p>
+                                <!-- Route Stats Pill Strip -->
+                                <div class="grid grid-cols-3 gap-3 my-6">
+                                    <div class="bg-[#FAF7F1] p-3 rounded-xl border border-border-subtle">
+                                        <span
+                                            class="text-[10px] font-bold text-muted-grey uppercase block">Distance</span>
+                                        <span class="text-base font-extrabold text-charcoal" id="route-dist">2,140
+                                            KM</span>
+                                    </div>
+                                    <div class="bg-[#FAF7F1] p-3 rounded-xl border border-border-subtle">
+                                        <span class="text-[10px] font-bold text-muted-grey uppercase block">Recommended
+                                            Pace</span>
+                                        <span class="text-base font-extrabold text-[#F67922]" id="route-time">6-7
+                                            Days</span>
+                                    </div>
+                                    <div class="bg-[#FAF7F1] p-3 rounded-xl border border-border-subtle">
+                                        <span
+                                            class="text-[10px] font-bold text-muted-grey uppercase block">Difficulty</span>
+                                        <span class="text-base font-extrabold text-charcoal" id="route-diff">Expedition
+                                            Grade</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 pt-4 border-t border-border-subtle">
+                                <a class="inline-flex items-center gap-2 bg-[#F67922] hover:bg-[#D85C16] text-white px-6 py-2.5 rounded-full font-bold text-xs uppercase tracking-wider transition-colors shadow"
+                                    href="#rides">
+                                    <span>View Route Guide</span>
+                                    <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                                </a>
+                                <span class="text-xs text-muted-grey font-medium">GPX &amp; Fuel Maps Included</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 7. RIDERS SECTION (MEET THE RIDERS) -->
+        <section class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24" id="riders">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+                <div>
+                    <span class="text-xs font-extrabold uppercase tracking-[0.22em] text-[#F67922] block mb-1">THE
+                        PEOPLE</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-charcoal tracking-tight">Meet the Riders.</h2>
+                    <p class="text-muted-grey text-base mt-2">The architects, navigators, and storytellers behind our
+                        wheels.</p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button
+                        class="w-10 h-10 rounded-full border border-border-subtle bg-surface-pure hover:border-[#F67922] hover:text-[#F67922] flex items-center justify-center transition-colors">
+                        <span class="material-symbols-outlined text-[18px]">west</span>
+                    </button>
+                    <button
+                        class="w-10 h-10 rounded-full border border-border-subtle bg-surface-pure hover:border-[#F67922] hover:text-[#F67922] flex items-center justify-center transition-colors">
+                        <span class="material-symbols-outlined text-[18px]">east</span>
+                    </button>
+                    <a class="ml-2 text-sm font-bold text-[#F67922] hover:underline" href="#">All Riders</a>
+                </div>
+            </div>
+            <!-- 4 Authentic Rider Portraits -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Rider 1 -->
+                <div
+                    class="bg-surface-pure rounded-2xl border border-border-subtle overflow-hidden shadow-sm hover:shadow-md transition-all group">
+                    <div class="aspect-[4/5] overflow-hidden bg-neutral-100 relative">
+                        <img alt="Arjun Deshmukh"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEMs1UA8TlxMa9-Aigmfh_Kc57NBeeVoecPznEQeWATpRfiGOoh394kmDkM4W1Yiiho9FmvcdvT75a7Be24HSAn1XfY41KEC6hFpYimBUswP9CYUDJ31h8Fa1y2UPq6Wp4lwL-k4NvmiaFpJ7Bb5OyXSArIFfSUuG8Aw2cxp0-zN6DLmY6Eb0qi982tp2PPyuRuhw-Eyycyl-GijBVgCVBJgiNmZ561bKmfOZx-Zc-QPVn5S-albM2jQ" />
+                        <span
+                            class="absolute bottom-3 left-3 bg-charcoal/80 backdrop-blur-sm text-white px-2.5 py-1 rounded text-[11px] font-bold">Classic
+                            350 Stealth</span>
+                    </div>
+                    <div class="p-5">
+                        <span class="text-[11px] font-extrabold uppercase tracking-wider text-[#F67922]">Trail Lead
+                            &amp; Navigator</span>
+                        <h4 class="font-bold text-lg text-charcoal mt-0.5">Arjun Deshmukh</h4>
+                        <p class="text-xs text-muted-grey mt-1">42,000 km ridden across Peninsular India and Himalayan
+                            passes.</p>
+                    </div>
+                </div>
+                <!-- Rider 2 -->
+                <div
+                    class="bg-surface-pure rounded-2xl border border-border-subtle overflow-hidden shadow-sm hover:shadow-md transition-all group">
+                    <div class="aspect-[4/5] overflow-hidden bg-neutral-100 relative">
+                        <img alt="Sneha Kulkarni"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDns_KXht7oCJIA4McqebWuPFhN0XWAja71UOX1Yl1Y5_9C5rXhlfscUcFU8_g4kMB4f049y3l86DK1Rf0eHuHHyfB41DcR2k8T0M36ShcJbTKwOwsKi7G4Wn9QvY-QGM5yLdqKYe4YWok4XhCR3UYGMykNL6S_ltSRgO75liQEY59XBq3s9iN0coFSIT0sWPOxHKPhBEZIuAvtUuZJWwSBWGLC3Krk6tCNN1d8CObrWIH5CSMmAdNHRQ" />
+                        <span
+                            class="absolute bottom-3 left-3 bg-charcoal/80 backdrop-blur-sm text-white px-2.5 py-1 rounded text-[11px] font-bold">Himalayan
+                            450</span>
+                    </div>
+                    <div class="p-5">
+                        <span class="text-[11px] font-extrabold uppercase tracking-wider text-[#F67922]">Convoy
+                            Marshal</span>
+                        <h4 class="font-bold text-lg text-charcoal mt-0.5">Sneha Kulkarni</h4>
+                        <p class="text-xs text-muted-grey mt-1">Founding member of the Western Maharashtra all-terrain
+                            convoy.</p>
+                    </div>
+                </div>
+                <!-- Rider 3 -->
+                <div
+                    class="bg-surface-pure rounded-2xl border border-border-subtle overflow-hidden shadow-sm hover:shadow-md transition-all group">
+                    <div class="aspect-[4/5] overflow-hidden bg-neutral-100 relative">
+                        <img alt="Vikramaditya Rao"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBF-90FmIysoRzKj8U97Mq65j2dnEY0OOhOfrq7FGnmjScmn7fsDDKwtcCEPbjTXvtUIGNHisXLvR7c0t9JoQMYXMe45FISQJzuoG_YP6s5tZzx9BHHtMMrLUf2NjhrTAt5v1qvGL83G02SiqtA3_iZCpTtgPM8O57Ow3KNt7fSpmt9Ekk4wcTLH8YFHS1CYCg1sf_xQC7FQYsbb17vsUsfJyXVr8E-9a4_HrqlJkZ0ToOgIn1OcxzKNA" />
+                        <span
+                            class="absolute bottom-3 left-3 bg-charcoal/80 backdrop-blur-sm text-white px-2.5 py-1 rounded text-[11px] font-bold">Bullet
+                            500 CI</span>
+                    </div>
+                    <div class="p-5">
+                        <span class="text-[11px] font-extrabold uppercase tracking-wider text-[#F67922]">Founding
+                            Trustee</span>
+                        <h4 class="font-bold text-lg text-charcoal mt-0.5">Vikramaditya Rao</h4>
+                        <p class="text-xs text-muted-grey mt-1">Custodian of vintage thumper engines &amp; Nagpur
+                            historical trails.</p>
+                    </div>
+                </div>
+                <!-- Rider 4 -->
+                <div
+                    class="bg-surface-pure rounded-2xl border border-border-subtle overflow-hidden shadow-sm hover:shadow-md transition-all group">
+                    <div class="aspect-[4/5] overflow-hidden bg-neutral-100 relative">
+                        <img alt="Rhea &amp; Kabir"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRz8cpytmVZpy2lw8sgacK4qXjyUCNELFgUm8xt4nj-RnjG5JhwkguxfpHH-5-Flafh_iAZuWUTBSHN3Znbgk1GO-T-HMnTzdbn18dVwsoKYHU_Buo-iTz6GOUA_7jsaeo3b62al-RLugmNX5q5Kj2TtMYPkC1d7Wjwef6AVN8eyHlHozR9XfO5Hzff8a3m8LUETG1NA9aiVvdvyFdVLsMyevl6qXOvzNBmZplPnj72T2pwroQY-YnNg" />
+                        <span
+                            class="absolute bottom-3 left-3 bg-charcoal/80 backdrop-blur-sm text-white px-2.5 py-1 rounded text-[11px] font-bold">Interceptor
+                            650</span>
+                    </div>
+                    <div class="p-5">
+                        <span class="text-[11px] font-extrabold uppercase tracking-wider text-[#F67922]">Field
+                            Photographers</span>
+                        <h4 class="font-bold text-lg text-charcoal mt-0.5">Kabir &amp; Rhea</h4>
+                        <p class="text-xs text-muted-grey mt-1">Capturing roadside steam, dusty smiles, and sunrise
+                            horizons.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Carousel Indicator Dots -->
+            <div class="flex items-center justify-center gap-2 mt-8">
+                <span class="w-6 h-2 rounded-full bg-[#F67922]"></span>
+                <span class="w-2 h-2 rounded-full bg-border-subtle"></span>
+                <span class="w-2 h-2 rounded-full bg-border-subtle"></span>
+            </div>
+        </section>
+        <!-- 8. TEAMS AND COMMUNITY -->
+        <section class="w-full bg-white border-y border-border-subtle py-16 lg:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+                    <div>
+                        <span class="text-xs font-extrabold uppercase tracking-[0.22em] text-[#F67922] block mb-1">ONE
+                            COMMUNITY</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-charcoal tracking-tight">Different Roads.
+                            One Community.</h2>
+                        <p class="text-muted-grey text-base mt-2">Every chapter serves a unique touring spirit across
+                            our guild.</p>
+                    </div>
+                    <a class="inline-flex items-center gap-1.5 text-sm font-bold text-[#F67922] hover:text-[#D85C16] transition-colors"
+                        href="#">
+                        <span>Explore Community</span>
+                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                    </a>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Team 1 -->
+                    <div
+                        class="bg-[#FAF7F1] rounded-2xl border border-border-subtle p-6 hover:shadow-md transition-shadow">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-[#F67922]/10 text-[#F67922] flex items-center justify-center mb-5">
+                            <span class="material-symbols-outlined text-[26px]">build</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-charcoal mb-2">Expedition Sweepers</h3>
+                        <p class="text-sm text-charcoal/80 leading-relaxed mb-4">
+                            Mechanics, tool-carriers, and first-responders who ride at the tail. No rider is left
+                            behind, whether it's a blown fuse or a flat tire at midnight.
+                        </p>
+                        <span class="text-xs font-bold text-[#F67922] uppercase tracking-wider">34 Active
+                            Sweepers</span>
+                    </div>
+                    <!-- Team 2 -->
+                    <div
+                        class="bg-[#FAF7F1] rounded-2xl border border-border-subtle p-6 hover:shadow-md transition-shadow">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-[#F67922]/10 text-[#F67922] flex items-center justify-center mb-5">
+                            <span class="material-symbols-outlined text-[26px]">bakery_dining</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-charcoal mb-2">Weekend Breakfast Guild</h3>
+                        <p class="text-sm text-charcoal/80 leading-relaxed mb-4">
+                            Short, soulful 80–120 km dawn hops to forest dhabas, lakeside poha joints, and heritage
+                            stone bridges before the city wakes up.
+                        </p>
+                        <span class="text-xs font-bold text-[#F67922] uppercase tracking-wider">Weekly Saturday
+                            Sessions</span>
+                    </div>
+                    <!-- Team 3 -->
+                    <div
+                        class="bg-[#FAF7F1] rounded-2xl border border-border-subtle p-6 hover:shadow-md transition-shadow">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-[#F67922]/10 text-[#F67922] flex items-center justify-center mb-5">
+                            <span class="material-symbols-outlined text-[26px]">groups_3</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-charcoal mb-2">Solo &amp; Women Convoy</h3>
+                        <p class="text-sm text-charcoal/80 leading-relaxed mb-4">
+                            Safe, supportive, self-guided groups encouraging independent touring across Maharashtra and
+                            Madhya Pradesh with full satellite check-ins.
+                        </p>
+                        <span class="text-xs font-bold text-[#F67922] uppercase tracking-wider">210+ Riders
+                            Enrolled</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 9. ABOUT NER -->
+        <section class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24" id="about">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- 1 Evocative Community Photo -->
+                <div class="lg:col-span-6 relative">
+                    <div class="relative rounded-3xl overflow-hidden shadow-xl aspect-[4/3] bg-neutral-100">
+                        <img alt="Fleet of NER riders at dusk" class="w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNMHgSA6pI-F7AUQP2CNlhSurW6NT5P7pm6iHRj4lDKFBseVuop1Neot-8D6iL8BCf2LCbj3ZTIqXFBGzroosh8YX2cnWEl8e_y2zvt6Vjl6rlpmNC60G-bm5BGohBGqcXAgXezsA-NynwxcpXPn4ri8B6mi6ujW2Nh0-eihIAYTKXNiEZuL6ZA5Ixatcp2WSD43OUv3liMx2BbB8GCI_BujIFrCdhEDjYytMb5SeIxfWwHj2acCeg7g" />
+                    </div>
+                    <!-- Decorative Stamp -->
+                    <div
+                        class="absolute -bottom-6 -right-6 bg-surface-pure border border-border-subtle p-4 rounded-2xl shadow-lg hidden sm:block">
+                        <span class="text-[11px] font-extrabold text-[#F67922] uppercase tracking-wider block">Est. 2024
+                            Nagpur</span>
+                        <span class="text-xs font-bold text-charcoal">Zero Mile Motorcycle Guild</span>
+                    </div>
+                </div>
+                <!-- Split Editorial Narrative -->
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-xs font-extrabold uppercase tracking-[0.25em] text-[#F67922] block">OUR
+                        STORY</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-charcoal tracking-tight leading-tight">
+                        Rooted in Nagpur.<br />
+                        <span class="italic font-light text-[#F67922]">Made for the Journey.</span>
+                    </h2>
+                    <p class="text-lg text-charcoal/80 font-normal leading-relaxed">
+                        Built around shared roads, lasting friendships, and the freedom to explore.
+                    </p>
+                    <p class="text-sm text-muted-grey leading-relaxed">
+                        Nagpur isn’t just where we gather; it is the Zero Mile marker where every cardinal highway of
+                        India converges. We ride old Cast Iron thumpers, contemporary twins, and adventure machines
+                        side-by-side with mutual respect.
+                    </p>
+                    <div class="pt-2">
+                        <a class="inline-flex items-center gap-2 bg-[#F67922] hover:bg-[#D85C16] text-white px-7 py-3 rounded-full font-bold text-sm shadow-md transition-all"
+                            href="#">
+                            <span>Read Our Story</span>
+                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 10. TESTIMONIALS & VIDEO STORIES -->
+        <section class="w-full bg-white border-y border-border-subtle py-16 lg:py-24" id="stories">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+                    <div>
+                        <span
+                            class="text-xs font-extrabold uppercase tracking-[0.22em] text-[#F67922] block mb-1">COMMUNITY
+                            VOICES</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-charcoal tracking-tight">Real People. Real
+                            Stories.</h2>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <a class="text-xs font-bold text-[#F67922] hover:underline uppercase tracking-wider"
+                            href="#">Written Reviews</a>
+                        <span class="text-border-subtle">•</span>
+                        <a class="text-xs font-bold text-muted-grey hover:text-[#F67922] transition-colors uppercase tracking-wider"
+                            href="#">Video Stories</a>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                    <!-- Authentic Large Rider Quote with Orange Accent -->
+                    <div
+                        class="lg:col-span-7 bg-[#FAF7F1] rounded-3xl p-8 lg:p-10 border border-border-subtle flex flex-col justify-between relative overflow-hidden">
+                        <span
+                            class="material-symbols-outlined absolute -top-4 -right-4 text-[120px] text-[#F67922]/10 select-none pointer-events-none">format_quote</span>
+                        <div>
+                            <div class="flex items-center gap-1 text-[#F67922] mb-6">
+                                <span class="material-symbols-outlined text-[20px]"
+                                    style="font-variation-settings: 'FILL' 1;">star</span>
+                                <span class="material-symbols-outlined text-[20px]"
+                                    style="font-variation-settings: 'FILL' 1;">star</span>
+                                <span class="material-symbols-outlined text-[20px]"
+                                    style="font-variation-settings: 'FILL' 1;">star</span>
+                                <span class="material-symbols-outlined text-[20px]"
+                                    style="font-variation-settings: 'FILL' 1;">star</span>
+                                <span class="material-symbols-outlined text-[20px]"
+                                    style="font-variation-settings: 'FILL' 1;">star</span>
+                                <span class="text-xs font-bold text-muted-grey ml-2">Verified Guild Rider</span>
+                            </div>
+                            <blockquote
+                                class="text-xl sm:text-2xl font-light italic text-charcoal leading-relaxed mb-6">
+                                “Joining NER completely transformed how I see Central India. You don’t just ride in a
+                                pack; you become part of an unspoken family that looks out for one another across every
+                                single mile, whether changing a flat tyre in the rain or sharing breakfast at dawn.”
+                            </blockquote>
+                        </div>
+                        <div class="flex items-center gap-4 pt-6 border-t border-border-subtle">
+                            <div class="w-12 h-12 rounded-full overflow-hidden bg-neutral-200 ring-2 ring-[#F67922]">
+                                <img alt="Arjun Deshmukh" class="w-full h-full object-cover"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEMs1UA8TlxMa9-Aigmfh_Kc57NBeeVoecPznEQeWATpRfiGOoh394kmDkM4W1Yiiho9FmvcdvT75a7Be24HSAn1XfY41KEC6hFpYimBUswP9CYUDJ31h8Fa1y2UPq6Wp4lwL-k4NvmiaFpJ7Bb5OyXSArIFfSUuG8Aw2cxp0-zN6DLmY6Eb0qi982tp2PPyuRuhw-Eyycyl-GijBVgCVBJgiNmZ561bKmfOZx-Zc-QPVn5S-albM2jQ" />
+                            </div>
+                            <div>
+                                <span class="font-bold text-base text-charcoal block">Arjun Deshmukh</span>
+                                <span class="text-xs text-muted-grey">Riding with NER since 2021 • Classic 350
+                                    Stealth</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Dedicated Video Review Preview Card -->
+                    <div
+                        class="lg:col-span-5 bg-[#FAF7F1] rounded-3xl p-6 border border-border-subtle flex flex-col justify-between">
+                        <div
+                            class="relative rounded-2xl overflow-hidden aspect-[16/10] bg-neutral-200 group cursor-pointer">
+                            <img alt="Video Review Thumbnail"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKVffnzciHuQJJEVk24gohCt9sHNDSyZlKClEpflM66PqYl5XJnDQN8kWLB_Ub3TWFifcGEOy0GYPO-Af5q-L5fkIZYe64RiIVmwBe5b7uiXYp__5adBAzT3Z8JpOx8OnPCGXOMvhMRMruViozkos0AptVob4aE2tcFtSIk1cSthu2fHnwh9Fm_AjBPuzelTJKs1hAPT-fV6-HYSiG--boGESen_zzoxZTwRNB7ovSLeXiiVlV7QF0Ig" />
+                            <div class="absolute inset-0 bg-charcoal/30 flex items-center justify-center">
+                                <div
+                                    class="w-14 h-14 rounded-full bg-[#F67922] text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                                    <span class="material-symbols-outlined text-[28px] pl-0.5"
+                                        style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                                </div>
+                            </div>
+                            <span
+                                class="absolute bottom-3 left-3 bg-charcoal/80 backdrop-blur-sm text-white px-2.5 py-0.5 rounded text-[11px] font-bold">2:40
+                                Min Video Review</span>
+                        </div>
+                        <div class="mt-4">
+                            <span class="text-[11px] font-bold text-[#F67922] uppercase tracking-wider">Rider Dispatch •
+                                Video Log</span>
+                            <h4 class="font-bold text-base text-charcoal mt-1">“The Pachmarhi Monsoon Ride changed
+                                everything for me as a solo rider.”</h4>
+                            <p class="text-xs text-muted-grey mt-2">Sneha reflects on wet ghat hairpins, the support
+                                convoy, and lifelong friendships.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 11. COMMUNITY GALLERY ("LIFE BETWEEN THE MILES") -->
+        <section class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+            <div class="text-center max-w-xl mx-auto mb-12">
+                <span class="text-xs font-extrabold uppercase tracking-[0.25em] text-[#F67922] block mb-1">LIFE BETWEEN
+                    THE MILES</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-charcoal tracking-tight">More Than the Journey.</h2>
+                <p class="text-muted-grey text-sm mt-2">
+                    <a class="text-[#F67922] font-bold hover:underline" href="https://instagram.com" rel="noopener"
+                        target="_blank">@nagpurenfieldriders</a> • Dispatches from the peninsular highway
+                </p>
+            </div>
+            <!-- Irregular Masonry Photo Strip -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                <!-- 1 -->
+                <div class="rounded-xl overflow-hidden aspect-[3/4] bg-neutral-100 group relative">
+                    <img alt="Chai Dhaba"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsdlNSciLF4bI0sOPckhFbjmFfg4nkH6tEAKal4LoHpnbOx6cy7aDs1HjdZD11QZOOmp0h-yA_HzTWzwBXzlk_ZxZud5J7_YkXDaLwhDpotAgE3nBxxTnMjYa-6BLRLigRKBoBdRJ5WRgAhAb47YpbHP-ssk1SvMEqiZIFnPfEZC2tKI5pqmYy-C5XtG7F25TBM6IE4E4cf8LjgP8oB5NT66EzDgCIg33bYuCdRzXyCn5mk8JLKx2JTQ" />
+                    <div
+                        class="absolute inset-0 bg-charcoal/60 opacity-0 group-hover:opacity-100 transition-opacity p-3 flex flex-col justify-end text-white text-[11px]">
+                        <span class="font-bold text-[#F67922]">06:15 AM</span>
+                        <span>NH44 Tea Stop</span>
+                    </div>
+                </div>
+                <!-- 2 -->
+                <div class="rounded-xl overflow-hidden aspect-[3/4] bg-neutral-100 group relative">
+                    <img alt="Ramtek Stone Temple"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBaWrn1y1FcWlYffLvUE7pRdYefPm2wq8TEnRjhgpGYl_ZK2Iir2SP6-IdEEZNE9tIKSDPLcqz9EXNfvPckCZhLMeIsR05pdSg_s7_2tTh-IdJUiWha7FIu2t9lUuIIGPIA_5Q8YuJoFXuFfgLp5J1a-2I3nK16T0OHOTyN66pjAUhvp3gyTQL4EuhrJKbQym3j-ItGSB4cH4qsEKyKruHRih0bK1u_4qcY0xcIdw7A-WZoZ04GBc4Yg" />
+                    <div
+                        class="absolute inset-0 bg-charcoal/60 opacity-0 group-hover:opacity-100 transition-opacity p-3 flex flex-col justify-end text-white text-[11px]">
+                        <span class="font-bold text-[#F67922]">Ramtek</span>
+                        <span>Ancient Stone Pass</span>
+                    </div>
+                </div>
+                <!-- 3 -->
+                <div class="rounded-xl overflow-hidden aspect-[3/4] bg-neutral-100 group relative">
+                    <img alt="Denim Patch Vest"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXU4h9qWFjOyabmhx_hJ-LLFuKuHceGzaVo8a0z8DmYQwXLBawLhkkrr3EUdxhcO8cp9Rgaxz5zxZlAluihvoLfu1PIgAaSF8HdeSnk1c5FrXbZDBWSfdlUxjgmcl9DD_DrdsOiSyXpteTAGE6nQeyxWlAiMaxFBn6yLiMo7K1JYXDpRGRW4YHz3J5r3TB3x1tbkK8Ju87auP6-wgsCDaQOPsj5mtr_7-sHTtFyB4MlXYAPoeZxRFmFQ" />
+                    <div
+                        class="absolute inset-0 bg-charcoal/60 opacity-0 group-hover:opacity-100 transition-opacity p-3 flex flex-col justify-end text-white text-[11px]">
+                        <span class="font-bold text-[#F67922]">Guild Vest</span>
+                        <span>Badge of Honor</span>
+                    </div>
+                </div>
+                <!-- 4 -->
+                <div class="rounded-xl overflow-hidden aspect-[3/4] bg-neutral-100 group relative">
+                    <img alt="Forest Trail"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv2K5fhPlo9RsX8SmlHAJiBTFmQASuO1xVulZww8CjQsFIlqjdTA767eWCcl1cg2CDiV47BbSQlcrtux5xtNMyoA_SH7sKhGBe6JRSFi76lHUjtVcd0d8FjkSI0LSV9Y0i0DJGlIznuyRgYHt5OkWHcCleJyroWR-QtqxQvq8Kg6dj-ArDV9WAI7N51sFPLCFduYJy6AkTTLhp3X-0UkEVay8LTbmfh0vKdBkv5Y8i_1FvpytTXexdSQ" />
+                    <div
+                        class="absolute inset-0 bg-charcoal/60 opacity-0 group-hover:opacity-100 transition-opacity p-3 flex flex-col justify-end text-white text-[11px]">
+                        <span class="font-bold text-[#F67922]">Buffer Zone</span>
+                        <span>Teak Woods</span>
+                    </div>
+                </div>
+                <!-- 5 -->
+                <div class="rounded-xl overflow-hidden aspect-[3/4] bg-neutral-100 group relative">
+                    <img alt="Sunset Reservoir"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQOAlFKDxLYx8GfJApFtjSmvTx-H38bqk8t2Qzz12lHqb_-g_a7nBpOn4kmaEdGrGOVeVoO2eHK6kkqr2esm-Pt9L9kO2mZ6nPORhZ2box7UpoG6hCHUzYYK7YmXYd2H0VdohOET7_AmWtuj7tRUW_fSIg_xjfeVaAAXW_JnvKYAVOgcquX-mSf7fvCi_Lf1qtA3hwN9j9yyYedQpx2i2Rjlv5_XVJPgIMks7qprkRcABuKT9SEdNCIg" />
+                    <div
+                        class="absolute inset-0 bg-charcoal/60 opacity-0 group-hover:opacity-100 transition-opacity p-3 flex flex-col justify-end text-white text-[11px]">
+                        <span class="font-bold text-[#F67922]">Totladoh</span>
+                        <span>Twilight Overlook</span>
+                    </div>
+                </div>
+                <!-- 6 -->
+                <div class="rounded-xl overflow-hidden aspect-[3/4] bg-neutral-100 group relative">
+                    <img alt="Laughing riders"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7s0-zWZOIsK2BHkUPiUz3RmKXpm7sYe9fMCC3PdwjfNEdn53IYolkLvOin-KVgvWSJpjkCKPkdu8c26ypT--Sl6LoYFGjamBebnzWKe4sytpGGxzWNPkJF3-wTI1RxvOe9ZoqdTcKIaNGc71heiqUEaiqjGKWmPMS1JeSivQijWlbgD3v84UgKKsVGqQfYzHuDt7DzfV8pg6M7k0FHABIVYAI2LQcRy0hI5fIqp3mvKPiwRNanFKteA" />
+                    <div
+                        class="absolute inset-0 bg-charcoal/60 opacity-0 group-hover:opacity-100 transition-opacity p-3 flex flex-col justify-end text-white text-[11px]">
+                        <span class="font-bold text-[#F67922]">The Guild</span>
+                        <span>Camaraderie</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- 12. FOOTER -->
+    <footer class="w-full bg-[#354F40] text-warm-ivory border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+                <!-- Brand Closing Statement -->
+                <div class="md:col-span-5 space-y-4">
+                    <div class="flex items-center gap-2">
+                        <span
+                            class="w-8 h-8 rounded-full bg-[#F67922] text-white flex items-center justify-center font-extrabold text-sm">NER</span>
+                        <span class="font-extrabold text-sm uppercase tracking-[0.2em] text-white">Nagpur Enfield
+                            Riders</span>
+                    </div>
+                    <h3 class="text-2xl font-bold tracking-tight text-white">Find Your People. Follow the Road.</h3>
+                    <p class="text-sm text-warm-ivory/80 max-w-sm leading-relaxed">
+                        Mindful motorcycle expeditions across peninsular passes, historic corridors, and teak forest
+                        reservations.
+                    </p>
+                    <div class="pt-2">
+                        <span class="text-[11px] font-bold tracking-[0.2em] uppercase text-[#F67922] block">Zero Mile
+                            Marker</span>
+                        <p class="text-xs font-mono text-warm-ivory/70 mt-1">21.1458° N, 79.0882° E • Nagpur HQ</p>
+                    </div>
+                </div>
+                <!-- Navigation Columns -->
+                <div class="md:col-span-3 space-y-3">
+                    <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#F67922]">Guild Index</span>
+                    <ul class="space-y-2 text-sm text-warm-ivory/80">
+                        <li><a class="hover:text-white transition-colors" href="#about">About</a></li>
+                        <li><a class="hover:text-white transition-colors" href="#rides">Expeditions &amp; Rides</a></li>
+                        <li><a class="hover:text-white transition-colors" href="#riders">Riders &amp; Teams</a></li>
+                        <li><a class="hover:text-white transition-colors" href="#collection">Provisions Shop</a></li>
+                        <li><a class="hover:text-white transition-colors" href="#stories">Reviews &amp; Dispatch</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="md:col-span-4 space-y-3">
+                    <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#F67922]">Field Channels &amp;
+                        Contact</span>
+                    <p class="text-sm text-warm-ivory/80">Headquarters: Civil Lines, Nagpur, Maharashtra</p>
+                    <p class="text-sm text-warm-ivory/80">Inquiries: dispatch@nagpurenfieldriders.in</p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <a class="w-9 h-9 rounded-full bg-white/10 hover:bg-[#F67922] text-white flex items-center justify-center transition-colors"
+                            href="#">
+                            <span class="material-symbols-outlined text-[18px]">photo_camera</span>
+                        </a>
+                        <a class="w-9 h-9 rounded-full bg-white/10 hover:bg-[#F67922] text-white flex items-center justify-center transition-colors"
+                            href="#">
+                            <span class="material-symbols-outlined text-[18px]">play_arrow</span>
+                        </a>
+                        <a class="w-9 h-9 rounded-full bg-white/10 hover:bg-[#F67922] text-white flex items-center justify-center transition-colors"
+                            href="#">
+                            <span class="material-symbols-outlined text-[18px]">chat</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Legal Links -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-warm-ivory/60">
+                <span>© 2025 Nagpur Enfield Riders Collective. All rights reserved.</span>
+                <div class="flex items-center gap-6">
+                    <a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+                    <a class="hover:text-white transition-colors" href="#">Ride Protocol</a>
+                    <a class="hover:text-white transition-colors" href="#">Terms of Road</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Interactive Hub Logic -->
+    <script>
+        const routeData = {
+            ladakh: {
+                title: 'LADAKH — <span class="text-[#F67922]">2,140 KM</span> FROM ZERO MILE, NAGPUR',
+                meta: 'Est. 6 Days via NH44 • Crosses 5 States • Highest Pass: Khardung La (5,359m)',
+                desc: 'The ultimate rite of passage for every Central India rider. Leaving the flat plains of Nagpur behind, traversing Madhya Pradesh, Delhi, and Jammu & Kashmir into the high barren altitude of Ladakh.',
+                dist: '2,140 KM',
+                time: '6-7 Days',
+                diff: 'Expedition Grade'
+            },
+            goa: {
+                title: 'GOA — <span class="text-[#F67922]">1,020 KM</span> FROM ZERO MILE, NAGPUR',
+                meta: 'Est. 2.5 Days via Solapur • Western Ghats Descent • Coastal Finish',
+                desc: 'Sweeping south-west across the Deccan plateau into the twisting Chorla Ghat hairpins, breaking through dense tropical palm canopies to the Arabian Sea.',
+                dist: '1,020 KM',
+                time: '2-3 Days',
+                diff: 'Touring Grade'
+            },
+            mumbai: {
+                title: 'MUMBAI — <span class="text-[#F67922]">810 KM</span> FROM ZERO MILE, NAGPUR',
+                meta: 'Est. 12-14 Hours via Samruddhi Mahamarg • Fast Expressway & Kasara Ghat',
+                desc: 'Nagpur’s primary industrial gateway to the Western coast. Smooth high-speed tarmac crossing the Vidarbha plains straight into the misty Kasara ghat drops.',
+                dist: '810 KM',
+                time: '1-2 Days',
+                diff: 'Fast Tarmac'
+            },
+            pune: {
+                title: 'PUNE — <span class="text-[#F67922]">710 KM</span> FROM ZERO MILE, NAGPUR',
+                meta: 'Est. 14 Hours via Ahmednagar • Deccan Heartlands Run',
+                desc: 'A classic cross-state connection through agricultural cotton belts and dry scrub landscapes, leading to Maharashtra’s cultural riding hub.',
+                dist: '710 KM',
+                time: '1-2 Days',
+                diff: 'Mixed Highway'
+            },
+            pachmarhi: {
+                title: 'PACHMARHI — <span class="text-[#F67922]">260 KM</span> FROM ZERO MILE, NAGPUR',
+                meta: 'Est. 5.5 Hours via Chhindwara • Satpura Hill Station Climb',
+                desc: 'Our favourite weekend pilgrimage. Cool pine air, dramatic valley drop-offs, and freshly surfaced hill twisties through the heart of the Satpura Tiger Reserve.',
+                dist: '260 KM',
+                time: '5-6 Hours',
+                diff: 'Ghat Twisties'
+            }
+        };
+
+        function switchRoute(cityKey, buttonElement) {
+            // Update Tab Styles
+            const buttons = document.querySelectorAll('#zero-mile-tabs button');
+            buttons.forEach(btn => {
+                btn.className = "px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all bg-surface-pure text-charcoal border border-border-subtle hover:border-[#F67922] cursor-pointer";
+            });
+            buttonElement.className = "px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all bg-[#F67922] text-white shadow-md cursor-pointer";
+
+            // Update Card Data
+            const data = routeData[cityKey];
+            if (data) {
+                document.getElementById('route-title').innerHTML = data.title;
+                document.getElementById('route-meta').innerText = data.meta;
+                document.getElementById('route-desc').innerText = data.desc;
+                document.getElementById('route-dist').innerText = data.dist;
+                document.getElementById('route-time').innerText = data.time;
+                document.getElementById('route-diff').innerText = data.diff;
+            }
+        }
+    </script>
+</body>
+
+</html>

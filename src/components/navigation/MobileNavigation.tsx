@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -8,26 +8,17 @@ import { HEADER_NAV_LINKS } from "@/constants/navigation";
 import { SITE_CONFIG } from "@/constants/site";
 import { registerGSAP } from "@/lib/gsap";
 import { JoinNerButton } from "./JoinNerButton";
-import { X, ChevronDown, Compass, ArrowUpRight } from "lucide-react";
+import { X, Compass } from "lucide-react";
 
 interface MobileNavigationProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const MORE_LINKS = [
-  { label: "Our Story", href: "/about/#story" },
-  { label: "Community", href: "/about/#culture" },
-  { label: "Ride Culture", href: "/about/#culture" },
-  { label: "Safety Protocol", href: "/about/#protocols" },
-  { label: "Contact Us", href: "/contact/" },
-];
-
 export const MobileNavigation: React.FC<MobileNavigationProps> = ({
   isOpen,
   onClose,
 }) => {
-  const [isMoreExpanded, setIsMoreExpanded] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const linksContainerRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
@@ -41,9 +32,6 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({
     }
     return cleanPath === cleanHref || cleanPath.startsWith(cleanHref + "/");
   };
-
-  const isMoreActive =
-    pathname ? pathname.replace(/\/+$/, "") === "/contact" : false;
 
   useEffect(() => {
     if (!isOpen || !menuRef.current) return;
@@ -85,7 +73,6 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
-      setIsMoreExpanded(false);
     }
     return () => {
       document.body.style.overflow = "";
@@ -149,7 +136,7 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({
       {/* Main Navigation Links */}
       <div
         ref={linksContainerRef}
-        className="flex-1 py-8 flex flex-col justify-center gap-4 sm:gap-6"
+        className="flex-1 py-8 flex flex-col justify-center gap-3 sm:gap-4"
       >
         {HEADER_NAV_LINKS.map((link) => {
           const isActive = isLinkActive(link.href);
@@ -158,9 +145,9 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({
             href: link.href,
             onClick: onClose,
             "aria-current": isActive ? ("page" as const) : undefined,
-            className: `text-3xl sm:text-4xl font-black uppercase tracking-tight transition-all flex items-center justify-between py-1.5 px-2 rounded-xl group ${
+            className: `text-2xl sm:text-3xl font-black uppercase tracking-tight transition-all flex items-center justify-between py-2 px-3 rounded-xl group ${
               isActive
-                ? "text-amber-400 bg-amber-500/10 border-l-4 border-amber-500 pl-3.5"
+                ? "text-amber-400 bg-amber-500/10 border-l-4 border-amber-500 pl-4"
                 : "text-zinc-200 hover:text-amber-400"
             }`,
           };
@@ -190,69 +177,6 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({
             </div>
           );
         })}
-
-        {/* MORE Accordion */}
-        <div className="mobile-nav-item pt-2 border-t border-zinc-900">
-          <button
-            onClick={() => setIsMoreExpanded(!isMoreExpanded)}
-            className={`w-full text-3xl sm:text-4xl font-black uppercase tracking-tight transition-colors flex items-center justify-between py-1.5 px-2 cursor-pointer ${
-              isMoreActive
-                ? "text-amber-400"
-                : "text-zinc-200 hover:text-amber-400"
-            }`}
-            aria-expanded={isMoreExpanded}
-          >
-            <span className="flex items-center gap-2">
-              <span>MORE</span>
-              {isMoreActive && (
-                <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
-              )}
-            </span>
-            <ChevronDown
-              className={`w-6 h-6 text-zinc-400 transition-transform duration-300 ${
-                isMoreExpanded ? "rotate-180 text-amber-500" : ""
-              }`}
-            />
-          </button>
-
-          {isMoreExpanded && (
-            <div className="grid grid-cols-2 gap-3 pt-4 pb-2 pl-2 animate-in fade-in duration-200">
-              {MORE_LINKS.map((item) => {
-                const isActive = isLinkActive(item.href);
-                const isSamePageScroll = item.href.startsWith("#");
-                const itemProps = {
-                  href: item.href,
-                  onClick: onClose,
-                  "aria-current": isActive ? ("page" as const) : undefined,
-                  className: `text-sm font-mono py-1.5 transition-colors flex items-center gap-1.5 ${
-                    isActive
-                      ? "text-amber-400 font-bold"
-                      : "text-zinc-400 hover:text-amber-400"
-                  }`,
-                };
-                const itemChildren = (
-                  <>
-                    <span className={`text-xs ${isActive ? "text-amber-400" : "text-amber-500"}`}>•</span>
-                    <span>{item.label}</span>
-                    {isActive && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse ml-auto" />
-                    )}
-                  </>
-                );
-
-                return isSamePageScroll ? (
-                  <Link key={item.label} {...itemProps}>
-                    {itemChildren}
-                  </Link>
-                ) : (
-                  <a key={item.label} {...itemProps}>
-                    {itemChildren}
-                  </a>
-                );
-              })}
-            </div>
-          )}
-        </div>
       </div>
 
       {/* Bottom Area: Large One-Handed CTA and Metadata */}

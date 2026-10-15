@@ -75,7 +75,9 @@ export default function NotFound() {
   return (
     <div className="flex flex-col min-h-screen bg-[#08080a] text-zinc-100 selection:bg-amber-500 selection:text-black">
       {/* Global Navigation Header */}
-      <Header />
+      <React.Suspense fallback={<div className="h-20 bg-black" />}>
+        <Header />
+      </React.Suspense>
 
       {/* Main 404 Body */}
       <main className="flex-1 relative flex flex-col justify-center overflow-hidden py-16 lg:py-24">

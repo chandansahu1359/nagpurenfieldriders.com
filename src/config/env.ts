@@ -59,20 +59,6 @@ export const ENV = {
     FACEBOOK_URL:
       process.env.NEXT_PUBLIC_FACEBOOK_URL || "https://facebook.com",
   },
-
-  /**
-   * Top-level shortcuts for convenience
-   */
-  CONTACT_EMAIL:
-    process.env.NEXT_PUBLIC_CONTACT_EMAIL || "contact@nagpurenfieldriders.com",
-  INSTAGRAM_URL:
-    process.env.NEXT_PUBLIC_INSTAGRAM_URL || "https://instagram.com",
-  INSTAGRAM_HANDLE:
-    process.env.NEXT_PUBLIC_INSTAGRAM_HANDLE || "@nagpurenfieldriders",
-  YOUTUBE_URL:
-    process.env.NEXT_PUBLIC_YOUTUBE_URL || "https://youtube.com",
-  FACEBOOK_URL:
-    process.env.NEXT_PUBLIC_FACEBOOK_URL || "https://facebook.com",
 } as const;
 
 export type Environment = typeof ENV;

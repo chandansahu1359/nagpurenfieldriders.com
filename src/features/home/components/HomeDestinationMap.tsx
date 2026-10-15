@@ -2,8 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { RIDE_DESTINATIONS } from "@/features/home/data/destinations.data";
-import { RideDestination } from "@/types";
+import Link from "next/link";
 import { Badge } from "@/components/ui/Badge";
 import { SITE_CONFIG } from "@/constants/site";
 import {
@@ -11,22 +10,122 @@ import {
   MapPin,
   Route,
   Mountain,
-  Clock,
   ArrowRight,
   Navigation2,
-  ChevronRight,
+  TreePine,
+  Sun,
+  Shield,
 } from "lucide-react";
 
+interface JourneyCorridor {
+  id: string;
+  name: string;
+  cardinalDirection: string;
+  terrainType: string;
+  highwayAxis: string;
+  vectorAngleDeg: number;
+  image: {
+    src: string;
+    alt: string;
+  };
+  narrative: string;
+  terrainSpecs: string[];
+  ridingEthos: string;
+}
+
+const JOURNEY_CORRIDORS: JourneyCorridor[] = [
+  {
+    id: "central-forest",
+    name: "Satpura & Pench Forest Corridor",
+    cardinalDirection: "North / Northeast Corridor",
+    terrainType: "Teak Canopy & Wildlife Overpasses",
+    highwayAxis: "NH44 Elevated Wildlife Corridor & NH47 Axis",
+    vectorAngleDeg: -45,
+    image: {
+      src: "/images/destinations/pench-forest.jpg",
+      alt: "Riding through misty forest roads in Pench Reserve near Nagpur",
+    },
+    narrative:
+      "Dense teak forests, crisp dawn mist, and sweeping highway curves cutting past wildlife sanctuaries right outside Nagpur. A proving ground for formation discipline and throttle control.",
+    terrainSpecs: [
+      "Protected forest canopy with ambient cooling",
+      "Disciplined formation speed through wildlife corridors",
+      "Technical sweeping curves and ghat transitions",
+    ],
+    ridingEthos: "Quiet throttle, strict formation spacing, environmental awareness.",
+  },
+  {
+    id: "western-ghats",
+    name: "Western Ghats & Coastal Corridors",
+    cardinalDirection: "Southwest Axis",
+    terrainType: "Deccan Plateau & Ghat Hairpins",
+    highwayAxis: "NH53 & NH48 Cross-State Arteries",
+    vectorAngleDeg: -150,
+    image: {
+      src: "/images/destinations/goa-coastal.jpg",
+      alt: "Cruising down coastal roads along the Arabian sea in Goa",
+    },
+    narrative:
+      "Trans-Maharashtra endurance cruising. From the black-soil plains of Vidarbha across the volcanic Deccan plateau, descending through historic mountain ghats to coastal tarmac.",
+    terrainSpecs: [
+      "Multi-climate transition from central plains to misty ghats",
+      "Demanding downhill hairpin switchbacks and technical braking",
+      "Long-distance endurance pacing and pack fuel management",
+    ],
+    ridingEthos: "Sustained rhythm, corner entry discipline, pack stamina.",
+  },
+  {
+    id: "high-altitude",
+    name: "Northern Himalayan Passes",
+    cardinalDirection: "North Axis",
+    terrainType: "High Altitude Passes & Glacial Plateaus",
+    highwayAxis: "NH44 Trans-India North Corridor",
+    vectorAngleDeg: -90,
+    image: {
+      src: "/images/destinations/ladakh-pass.jpg",
+      alt: "Royal Enfield rider touring through high mountain passes in Ladakh",
+    },
+    narrative:
+      "Thin air, cold winds, and rugged mountain corridors. The ultimate endurance test for machine carburetion, rider fortitude, and mutual roadside camaraderie across sub-zero passes.",
+    terrainSpecs: [
+      "Drastic elevation changes up to extreme high passes",
+      "Variable glacial gravel, rock beds and water crossings",
+      "Unforgiving temperatures demanding complete rider preparedness",
+    ],
+    ridingEthos: "Complete mechanical solidarity, oxygen discipline, steady pacing.",
+  },
+  {
+    id: "desert-frontier",
+    name: "Western Arid Horizons",
+    cardinalDirection: "Northwest Axis",
+    terrainType: "Open Desert Highways & Golden Dunes",
+    highwayAxis: "NH46 & NH27 Interstate Route",
+    vectorAngleDeg: -120,
+    image: {
+      src: "/images/destinations/rajasthan-desert.jpg",
+      alt: "Motorcycle on vast straight desert road at sunset",
+    },
+    narrative:
+      "Unbroken horizons, long open-throttle stretches, and starry desert skies. An odyssey that celebrates the deep, hypnotic cadence of Royal Enfield single-cylinder cruising.",
+    terrainSpecs: [
+      "Expansive straightaways with sustained crosswind exposure",
+      "High thermal variance between blazing noon and cold desert dusk",
+      "Remote fuel stops requiring rigorous route planning",
+    ],
+    ridingEthos: "Heat hydration discipline, constant tire monitoring, open-road focus.",
+  },
+];
+
 export const HomeDestinationMap: React.FC = () => {
-  const [selectedDestination, setSelectedDestination] = useState<RideDestination>(
-    RIDE_DESTINATIONS[0]
+  const [activeCorridor, setActiveCorridor] = useState<JourneyCorridor>(
+    JOURNEY_CORRIDORS[0]
   );
 
   return (
     <section
       id="destinations"
       className="relative bg-[#08080a] py-24 sm:py-32 border-b border-zinc-900 overflow-hidden"
-      aria-label="Riding Distance and Destination Storytelling"
+      aria-label="Routes from Zero Mile Journey Showcase"
     >
       {/* Background road styling */}
       <div className="absolute inset-0 bg-road-grid opacity-15 pointer-events-none" />
@@ -40,15 +139,11 @@ export const HomeDestinationMap: React.FC = () => {
               <Badge variant="amber" size="sm" icon={<Compass className="w-3.5 h-3.5" />}>
                 ORIGIN: ZERO MILE NAGPUR
               </Badge>
-              <a
-                href={SITE_CONFIG.zeroMileMapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Navigate to Zero Mile Stone coordinates on Google Maps"
-                className="text-xs font-mono text-zinc-400 hover:text-amber-400 transition-colors underline decoration-zinc-700 hover:decoration-amber-400 underline-offset-4"
-              >
-                {SITE_CONFIG.zeroMileCoordinates}
-              </a>
+              {SITE_CONFIG.zeroMileCoordinates && (
+                <span className="text-xs font-mono text-zinc-400">
+                  {SITE_CONFIG.zeroMileCoordinates}
+                </span>
+              )}
             </div>
 
             <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase text-white tracking-tight">
@@ -61,21 +156,22 @@ export const HomeDestinationMap: React.FC = () => {
 
           <div className="max-w-lg">
             <p className="text-sm sm:text-base text-zinc-400 leading-relaxed">
-              Nagpur stands at the geographic center of India. For NER riders,
-              every rollout begins at the Zero Mile Stone and stretches thousands
-              of kilometers into high passes, coastal horizons, and arid deserts.
+              Nagpur sits at the geographic center of the Indian subcontinent.
+              For Nagpur Enfield Riders, every rollout radiates outward from the Zero
+              Mile Stone into high passes, dense teak forests, and open highway horizons.
             </p>
           </div>
         </div>
 
-        {/* Destination Quick Selector Tabs */}
+        {/* Corridor Quick Selector Tabs */}
         <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-10 scrollbar-none">
-          {RIDE_DESTINATIONS.map((dest) => {
-            const isSelected = selectedDestination.id === dest.id;
+          {JOURNEY_CORRIDORS.map((corridor) => {
+            const isSelected = activeCorridor.id === corridor.id;
             return (
               <button
-                key={dest.id}
-                onClick={() => setSelectedDestination(dest)}
+                key={corridor.id}
+                type="button"
+                onClick={() => setActiveCorridor(corridor)}
                 className={`px-4 py-2.5 rounded-xl text-xs font-mono uppercase tracking-wider transition-all duration-200 shrink-0 flex items-center gap-2.5 border cursor-pointer ${
                   isSelected
                     ? "bg-amber-500 text-zinc-950 font-bold border-amber-400 shadow-lg shadow-amber-500/20 scale-105"
@@ -87,22 +183,22 @@ export const HomeDestinationMap: React.FC = () => {
                     isSelected ? "bg-zinc-950" : "bg-amber-500"
                   }`}
                 />
-                <span>{dest.name.split("&")[0]}</span>
+                <span>{corridor.name.split("&")[0]}</span>
                 <span
                   className={`text-[10px] px-1.5 py-0.5 rounded ${
                     isSelected ? "bg-zinc-950/20 text-zinc-950" : "bg-zinc-800 text-zinc-300"
                   }`}
                 >
-                  {dest.distanceLabel}
+                  {corridor.cardinalDirection.split(" ")[0]}
                 </span>
               </button>
             );
           })}
         </div>
 
-        {/* The Interactive Telemetry & Map Board */}
+        {/* Interactive Corridor Telemetry & Storyboard */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-          {/* Left Column: Visual Radar & Route Vector Matrix (5 cols) */}
+          {/* Left Column: Visual Radial Vector Matrix (5 cols) */}
           <div className="lg:col-span-5 bg-zinc-900/50 backdrop-blur-md border border-zinc-800/90 rounded-3xl p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden">
             {/* Visual Compass & Radar Diagram */}
             <div className="relative aspect-square w-full max-w-sm mx-auto flex items-center justify-center">
@@ -116,17 +212,17 @@ export const HomeDestinationMap: React.FC = () => {
               <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-[1px] bg-zinc-800" />
 
               {/* Cardinal direction labels */}
-              <span className="absolute top-2 left-1/2 -translate-x-1/2 text-[10px] font-mono text-zinc-300 font-bold">
-                N • LADAKH
+              <span className="absolute top-2 left-1/2 -translate-x-1/2 text-[10px] font-mono text-zinc-400 font-bold">
+                N • HIMALAYAN AXIS
               </span>
-              <span className="absolute bottom-2 left-1/2 -translate-x-1/2 text-[10px] font-mono text-zinc-300 font-bold">
-                S • HYDERABAD
+              <span className="absolute bottom-2 left-1/2 -translate-x-1/2 text-[10px] font-mono text-zinc-400 font-bold">
+                S • DECCAN HIGHWAYS
               </span>
-              <span className="absolute left-2 top-1/2 -translate-y-1/2 text-[10px] font-mono text-zinc-300 font-bold">
-                W • GOA
+              <span className="absolute left-2 top-1/2 -translate-y-1/2 text-[10px] font-mono text-zinc-400 font-bold">
+                W • GHATS & COAST
               </span>
-              <span className="absolute top-8 left-8 text-[10px] font-mono text-zinc-300 font-bold">
-                NW • RAJASTHAN
+              <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] font-mono text-zinc-400 font-bold">
+                E • FORESTS
               </span>
 
               {/* Central Zero Mile Node */}
@@ -139,32 +235,31 @@ export const HomeDestinationMap: React.FC = () => {
                 <span className="text-[11px] font-mono font-bold text-amber-400 mt-2 tracking-widest uppercase">
                   NAGPUR
                 </span>
-                <span className="text-[9px] font-mono text-zinc-300">
-                  ZERO MILE STONE
+                <span className="text-[9px] font-mono text-zinc-400">
+                  ZERO MILE ORIGIN
                 </span>
               </div>
 
-              {/* Destination Nodes on the Radar */}
-              {RIDE_DESTINATIONS.map((dest) => {
-                const isCurrent = selectedDestination.id === dest.id;
-
-                // Position based on cardinal angle
-                const angleRad = (dest.vectorAngleDeg * Math.PI) / 180;
-                const radius = 120; // px
+              {/* Corridor Interactive Nodes */}
+              {JOURNEY_CORRIDORS.map((corridor) => {
+                const isCurrent = activeCorridor.id === corridor.id;
+                const angleRad = (corridor.vectorAngleDeg * Math.PI) / 180;
+                const radius = 120;
                 const x = Math.cos(angleRad) * radius;
                 const y = Math.sin(angleRad) * radius;
 
                 return (
                   <button
-                    key={dest.id}
-                    onClick={() => setSelectedDestination(dest)}
+                    key={corridor.id}
+                    type="button"
+                    onClick={() => setActiveCorridor(corridor)}
                     style={{
                       transform: `translate(${x}px, ${y}px)`,
                     }}
                     className={`absolute z-30 flex items-center gap-1.5 p-1 rounded-full transition-transform hover:scale-125 cursor-pointer ${
                       isCurrent ? "scale-110 z-40" : "opacity-70 hover:opacity-100"
                     }`}
-                    title={`${dest.name} (${dest.distanceLabel})`}
+                    title={corridor.name}
                   >
                     <div
                       className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${
@@ -184,91 +279,64 @@ export const HomeDestinationMap: React.FC = () => {
               })}
             </div>
 
-            {/* Radar telemetry readout */}
+            {/* Radar Telemetry Readout */}
             <div className="mt-8 pt-6 border-t border-zinc-800/80 flex items-center justify-between text-xs font-mono text-zinc-400">
               <div className="flex items-center gap-2">
                 <Navigation2 className="w-3.5 h-3.5 text-amber-500 rotate-45" />
-                <span>HEADING: {selectedDestination.direction.toUpperCase()}</span>
+                <span>ORIENTATION: {activeCorridor.cardinalDirection.toUpperCase()}</span>
               </div>
-              <span className="text-amber-400">
-                {selectedDestination.distanceLabel} FROM ORIGIN
+              <span className="text-amber-400 font-bold uppercase">
+                {activeCorridor.terrainType.split("&")[0]}
               </span>
             </div>
           </div>
 
-          {/* Right Column: Active Destination Storyboard (7 cols) */}
+          {/* Right Column: Active Corridor Storyboard (7 cols) */}
           <div className="lg:col-span-7 bg-zinc-900/60 backdrop-blur-md border border-zinc-800 rounded-3xl overflow-hidden flex flex-col justify-between">
-            {/* Top Photography Showcase */}
+            {/* Photography Showcase */}
             <div className="relative h-64 sm:h-80 w-full overflow-hidden">
               <Image
-                src={selectedDestination.image.src}
-                alt={selectedDestination.image.alt}
+                src={activeCorridor.image.src}
+                alt={activeCorridor.image.alt}
                 fill
                 sizes="(max-width: 1024px) 100vw, 60vw"
                 className="object-cover object-center transition-all duration-700 hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent" />
 
-              {/* Category pill on image */}
+              {/* Highway Tag */}
               <div className="absolute top-4 left-4 z-10">
-                <Badge variant="amber" size="sm">
-                  {selectedDestination.category}
+                <Badge variant="amber" size="sm" icon={<Route className="w-3 h-3" />}>
+                  {activeCorridor.highwayAxis}
                 </Badge>
               </div>
 
-              {/* Large Overlay Distance Number */}
-              <div className="absolute bottom-4 left-6 right-6 z-10 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
-                <div>
-                  <span className="text-[11px] font-mono tracking-widest text-zinc-300 uppercase block mb-1">
-                    ROADWAY DISTANCE FROM NAGPUR
-                  </span>
-                  <div className="text-4xl sm:text-5xl lg:text-6xl font-black font-mono text-white tracking-tight flex items-baseline gap-2">
-                    <span>{selectedDestination.distanceLabel}</span>
-                  </div>
-                </div>
-
-                <div className="text-xs font-mono text-amber-400 bg-black/60 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-amber-500/30 w-fit">
-                  {selectedDestination.typicalDuration}
-                </div>
+              {/* Title on Image */}
+              <div className="absolute bottom-4 left-6 right-6 z-10">
+                <span className="text-[11px] font-mono tracking-widest text-amber-400 uppercase block mb-1">
+                  TERRAIN CORRIDOR
+                </span>
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black uppercase text-white tracking-wide">
+                  {activeCorridor.name}
+                </h3>
               </div>
             </div>
 
-            {/* Bottom Telemetry Details */}
+            {/* Telemetry Details */}
             <div className="p-6 sm:p-8 flex flex-col gap-6">
-              <div>
-                <h3 className="text-2xl sm:text-3xl font-black uppercase text-white tracking-wide mb-2">
-                  {selectedDestination.name}
-                </h3>
-                <div className="flex items-center gap-2 text-xs font-mono text-zinc-400">
-                  <Route className="w-3.5 h-3.5 text-amber-500 shrink-0" />
-                  <span>{selectedDestination.roadRoute}</span>
-                </div>
-              </div>
+              <p className="text-sm text-zinc-300 leading-relaxed">
+                {activeCorridor.narrative}
+              </p>
 
-              {/* Terrain & Key Highlights */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              {/* Terrain & Ethos Specs */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="bg-zinc-950/60 p-4 rounded-xl border border-zinc-800/80">
                   <div className="flex items-center gap-2 text-xs font-mono text-amber-400 uppercase font-semibold mb-2">
                     <Mountain className="w-3.5 h-3.5" />
-                    <span>Terrain & Elevation</span>
+                    <span>Terrain Characteristics</span>
                   </div>
-                  <p className="text-xs text-zinc-300 leading-relaxed">
-                    {selectedDestination.terrain}
-                    {selectedDestination.elevation && (
-                      <span className="block mt-1 text-white font-mono font-semibold">
-                        Summit Altitude: {selectedDestination.elevation}
-                      </span>
-                    )}
-                  </p>
-                </div>
-
-                <div className="bg-zinc-950/60 p-4 rounded-xl border border-zinc-800/80">
-                  <div className="flex items-center gap-2 text-xs font-mono text-amber-400 uppercase font-semibold mb-2">
-                    <Clock className="w-3.5 h-3.5" />
-                    <span>Road Highlights</span>
-                  </div>
-                  <ul className="text-xs text-zinc-300 space-y-1">
-                    {selectedDestination.highlights.map((item, idx) => (
+                  <ul className="text-xs text-zinc-400 space-y-1">
+                    {activeCorridor.terrainSpecs.map((item, idx) => (
                       <li key={idx} className="flex items-start gap-1.5">
                         <span className="text-amber-500 font-mono">•</span>
                         <span>{item}</span>
@@ -276,15 +344,31 @@ export const HomeDestinationMap: React.FC = () => {
                     ))}
                   </ul>
                 </div>
+
+                <div className="bg-zinc-950/60 p-4 rounded-xl border border-zinc-800/80">
+                  <div className="flex items-center gap-2 text-xs font-mono text-amber-400 uppercase font-semibold mb-2">
+                    <Shield className="w-3.5 h-3.5" />
+                    <span>Riding Ethos</span>
+                  </div>
+                  <p className="text-xs text-zinc-400 leading-relaxed">
+                    {activeCorridor.ridingEthos}
+                  </p>
+                </div>
               </div>
 
-              {/* Route Origin verification footnote */}
-              <div className="pt-4 border-t border-zinc-800/80 flex items-center justify-between text-xs font-mono text-zinc-400">
+              {/* Route Link */}
+              <div className="pt-4 border-t border-zinc-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono text-zinc-400">
                 <div className="flex items-center gap-2">
                   <MapPin className="w-3.5 h-3.5 text-amber-500" />
-                  <span>ROUTE CALCULATED VIA NATIONAL HIGHWAY CORRIDORS</span>
+                  <span>DEPARTURE BASE: ZERO MILE STONE, CIVIL LINES</span>
                 </div>
-                <span className="text-zinc-300">ACTUAL ODOMETER LOGS</span>
+                <Link
+                  href="/rides/"
+                  className="inline-flex items-center gap-1.5 text-amber-400 hover:text-amber-300 font-bold transition-colors"
+                >
+                  <span>VIEW RIDE ARCHIVE</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
               </div>
             </div>
           </div>

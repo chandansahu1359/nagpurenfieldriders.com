@@ -1,8 +1,6 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import { Header } from "@/components/navigation/Header";
-import { Footer } from "@/components/footer/Footer";
 import { RidesHero } from "./components/RidesHero";
 import { RidesFeatured } from "./components/RidesFeatured";
 import { RidesFilterBar } from "./components/RidesFilterBar";
@@ -13,7 +11,7 @@ import {
   getRidesForRidesPage,
   getFeaturedRide,
 } from "./data/rides.data";
-import { RideFilterState } from "./types";
+import { RideFilterState } from "@/types";
 
 const DEFAULT_FILTERS: RideFilterState = {
   status: "upcoming",
@@ -83,45 +81,37 @@ export const RidesPage: React.FC = () => {
     !filters.searchQuery.trim();
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#08080a] text-zinc-100 selection:bg-amber-500 selection:text-black">
-      {/* Global Navigation */}
-      <Header />
+    <div className="flex flex-col w-full">
+      {/* Cinematic Journal Hero */}
+      <RidesHero />
 
-      <main className="flex-1">
-        {/* Cinematic Journal Hero */}
-        <RidesHero />
+      {/* Next Official Rollout Editorial Banner */}
+      {showFeatured && <RidesFeatured ride={featuredRide} />}
 
-        {/* Next Official Rollout Editorial Banner */}
-        {showFeatured && <RidesFeatured ride={featuredRide} />}
+      {/* Interactive Discovery Filters */}
+      <RidesFilterBar
+        filters={filters}
+        onFilterChange={handleFilterChange}
+        onReset={handleReset}
+        totalCount={filteredRides.length}
+      />
 
-        {/* Interactive Discovery Filters */}
-        <RidesFilterBar
-          filters={filters}
-          onFilterChange={handleFilterChange}
-          onReset={handleReset}
-          totalCount={filteredRides.length}
-        />
+      {/* Empty State */}
+      {filteredRides.length === 0 ? (
+        <RidesEmptyState onReset={handleReset} />
+      ) : (
+        <>
+          {/* Upcoming Rides Section */}
+          {(filters.status === "all" || filters.status === "upcoming") && (
+            <RidesList rides={upcomingRides} />
+          )}
 
-        {/* Empty State */}
-        {filteredRides.length === 0 ? (
-          <RidesEmptyState onReset={handleReset} />
-        ) : (
-          <>
-            {/* Upcoming Rides Section */}
-            {(filters.status === "all" || filters.status === "upcoming") && (
-              <RidesList rides={upcomingRides} />
-            )}
-
-            {/* Completed Visual Archive */}
-            {(filters.status === "all" || filters.status === "completed") && (
-              <RidesArchive rides={completedRides} />
-            )}
-          </>
-        )}
-      </main>
-
-      {/* Global Footer */}
-      <Footer />
+          {/* Completed Visual Archive */}
+          {(filters.status === "all" || filters.status === "completed") && (
+            <RidesArchive rides={completedRides} />
+          )}
+        </>
+      )}
     </div>
   );
 };
